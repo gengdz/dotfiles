@@ -52,7 +52,15 @@ return {
     },
     opts = {},
   },
-
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  --   opts = {},
+  --   build = function()
+  --     vim.fn["mkdp#util#install"]()
+  --   end,
+  -- },
   {
     "lewis6991/gitsigns.nvim",
     opts = {
