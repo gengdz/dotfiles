@@ -78,6 +78,26 @@ return {
     },
   },
 
+  {
+    "tom-anders/telescope-vim-bookmarks.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    keys = {
+      { "ma", "<Cmd>Telescope vim_bookmarks all<CR>" },
+    },
+    opts = {},
+  },
+
+  {
+    "MattesGroeger/vim-bookmarks",
+    lazy = true,
+    event = "VeryLazy",
+    init = function()
+      vim.g.bookmark_sign = "♥"
+      vim.g.bookmark_highlight_lines = 1
+    end,
+  },
+
   { "ggandor/flit.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
   { "folke/todo-comments.nvim", enabled = false },
