@@ -21,6 +21,9 @@ map("n", "<CR>", "o<Esc>", opts)
 -- 退出当前窗口
 map("n", "<leader>q", ":q<cr>", opts)
 
+-- 复制全部内容
+map("n", "yie", ":%y<cr>", opts)
+
 -- n,N center
 map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
