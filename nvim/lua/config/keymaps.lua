@@ -2,47 +2,43 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
-
 local opts = { noremap = true, silent = true }
 
--- 使用 Enter 插入空行
-map("n", "<CR>", "o<Esc>", opts)
+-- 使用 Enter 插入空行。但是这样的快捷键会和 quickfix 冲突。所以先注释
+-- vim.keymap.set("n", "<CR>", "o<Esc>", opts)
 
 -- 退出当前窗口
-map("n", "<leader>q", ":q<cr>", opts)
+vim.keymap.set("n", "<leader>q", ":q<cr>", opts)
+
+-- quickfix
+vim.keymap.set("n", "]q", ":cnext<cr>", opts)
+vim.keymap.set("n", "[q", ":cprev<cr>", opts)
+vim.keymap.set("n", "]Q", ":cnfile<cr>", opts)
+vim.keymap.set("n", "[Q", ":cpfile<cr>", opts)
 
 -- 复制全部内容
-map("n", "yie", ":%y<cr>", opts)
+vim.keymap.set("n", "yie", ":%y<cr>", opts)
 
 -- n,N center
-map("n", "n", "nzz", opts)
-map("n", "N", "Nzz", opts)
+vim.keymap.set("n", "n", "nzz", opts)
+vim.keymap.set("n", "N", "Nzz", opts)
 
 -- Insert --
-map("i", "<C-a>", "<Home>", opts)
-map("i", "<C-e>", "<End>", opts)
-map("i", "<C-b>", "<Left>", opts)
-map("i", "<C-f>", "<Right>", opts)
+vim.keymap.set("i", "<C-a>", "<Home>", opts)
+vim.keymap.set("i", "<C-e>", "<End>", opts)
+vim.keymap.set("i", "<C-b>", "<Left>", opts)
+vim.keymap.set("i", "<C-f>", "<Right>", opts)
 
-map("n", "H", "^", opts)
-map("n", "L", "$", opts)
-map("v", "H", "^", opts)
-map("v", "L", "$", opts)
+vim.keymap.set("n", "H", "^", opts)
+vim.keymap.set("n", "L", "$", opts)
+vim.keymap.set("v", "H", "^", opts)
+vim.keymap.set("v", "L", "$", opts)
 
 -- 【禁用】内置的 windows 快捷键。useless
-vim.keymap.del("n", "<leader>ww", opts)
-vim.keymap.del("n", "<leader>wd", opts)
-vim.keymap.del("n", "<leader>w-", opts)
-vim.keymap.del("n", "<leader>w|", opts)
-vim.keymap.del("n", "<leader>-", opts)
-vim.keymap.del("n", "<leader>|", opts)
+vim.keymap.set("n", "<leader>ww", "<Nop>")
+-- vim.keymap.del("n", "<leader>ww")
+-- vim.keymap.del("n", "<leader>wd")
+-- vim.keymap.del("n", "<leader>w-")
+-- vim.keymap.del("n", "<leader>w|")
+-- vim.keymap.del("n", "<leader>-")
+-- vim.keymap.del("n", "<leader>|")
