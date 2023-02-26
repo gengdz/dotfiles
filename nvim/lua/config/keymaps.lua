@@ -24,6 +24,8 @@ vim.keymap.set("n", "[Q", ":cpfile<cr>", opts)
 
 -- 复制全部内容
 vim.keymap.set("n", "yie", ":%y<cr>", opts)
+vim.keymap.set("n", "die", ":%d<cr>", opts)
+vim.keymap.set("n", "vie", "ggVG", opts)
 
 -- n,N center
 vim.keymap.set("n", "n", "nzz", opts)
