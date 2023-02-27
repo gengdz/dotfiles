@@ -23,26 +23,23 @@ return {
     keys = {
       { "<leader>ff", Util.telescope("find_files"), desc = "Find Plugin File" },
       { "<leader>fg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
-      -- {
-      --   "<leader>ff",
-      --   function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
-      --   desc = "Find Plugin File",
-      -- },
+      { "<leader>fb", Util.telescope("buffers"), desc = "Find in Buffers" },
+      { "<leader>fo", Util.telescope("oldfiles"), desc = "Find in Old Files" },
     },
   },
 
   -- add telescope-fzf-native
-  {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
-  },
-
+  -- {
+  --   "telescope.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope-fzf-native.nvim",
+  --     build = "make",
+  --     config = function()
+  --       require("telescope").load_extension("fzf")
+  --     end,
+  --   },
+  -- },
+  --
   {
     "phaazon/hop.nvim",
     lazy = true,
