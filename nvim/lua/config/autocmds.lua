@@ -23,3 +23,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       + "r" -- But do continue when pressing enter.
   end,
 })
+
+-- 自动保存
+-- 当离开 insert 模式，或者文本在 normal 模式中有变动时，自动将所有缓冲区中的变更写入到文件。
+-- 其中 nested 是指该自动命令可以被其他 BufWrite 自动命令的事件所依赖
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  pattern = { "*" },
+  command = "silent! wall",
+  nested = true,
+})
