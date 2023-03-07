@@ -41,24 +41,11 @@ return {
   {
     "akinsho/bufferline.nvim",
     keys = {
-      -- 快速在buffer间跳转
-      { "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>" },
-      { "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>" },
-      { "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>" },
-      { "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>" },
-      { "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>" },
-      { "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>" },
-      { "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>" },
-      { "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>" },
-      { "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>" },
       { "<leader>bp", "<Cmd>BufferLinePick<CR>" },
-
       -- 选择关闭buffer
       { "<leader>bc", "<Cmd>BufferLinePickClose<CR>" },
-
       -- 关闭除此外的所有buffer 理解为，bufer only
       { "<leader>bo", "<Cmd>BufferLineCloseLeft<CR><Cmd>BufferLineCloseRight<CR>" },
-
       -- 左右切换
       { "<S-j>", "<Cmd>BufferLineCyclePrev<CR>" },
       { "<S-k>", "<Cmd>BufferLineCycleNext<CR>" },

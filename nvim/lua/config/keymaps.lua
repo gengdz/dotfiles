@@ -17,8 +17,6 @@ vim.keymap.set("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increa
 vim.keymap.set("n", "<leader>q", ":q<cr>", opts)
 
 -- quickfix
-vim.keymap.set("n", "]q", ":cnext<cr>", opts)
-vim.keymap.set("n", "[q", ":cprev<cr>", opts)
 vim.keymap.set("n", "]Q", ":cnfile<cr>", opts)
 vim.keymap.set("n", "[Q", ":cpfile<cr>", opts)
 

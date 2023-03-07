@@ -74,7 +74,12 @@ return {
       },
     },
   },
-
+  {
+    "sindrets/diffview.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
   {
     "tom-anders/telescope-vim-bookmarks.nvim",
     lazy = true,
