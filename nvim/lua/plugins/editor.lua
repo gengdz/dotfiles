@@ -49,15 +49,20 @@ return {
     },
     opts = {},
   },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   lazy = true,
-  --   event = "VeryLazy",
-  --   opts = {},
-  --   build = function()
-  --     vim.fn["mkdp#util#install"]()
-  --   end,
-  -- },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install", -- build 会失败，我手动执行了这一步。
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_command_for_global = 1
+      -- vim.g.mkdp_auto_close = 0
+      -- vim.g.mkdp_theme = "dark"
+    end,
+    ft = { "markdown" },
+    keys = {
+      { "<leader>mp", "<cmd>MarkdownPreview<cr>" },
+    },
+  },
   {
     "lewis6991/gitsigns.nvim",
     opts = {

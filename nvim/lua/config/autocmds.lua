@@ -6,7 +6,6 @@
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "markdown" },
   callback = function()
-    vim.opt_local.wrap = false
     vim.opt_local.spell = false
     vim.wo.conceallevel = 0
   end,
@@ -36,7 +35,7 @@ vim.api.nvim_create_autocmd({ "BufLeave" }, {
 -- 当离开 insert 模式，或者文本在 normal 模式中有变动时，自动将所有缓冲区中的变更写入到文件。
 -- 其中 nested 是指该自动命令可以被其他 BufWrite 自动命令的事件所依赖
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-  pattern = { "gitcommit", "markdown", "*.lua", "*.md" },
+  pattern = { "gitcommit", "markdown", "*.md" },
   command = "silent! wall",
   nested = true,
 })

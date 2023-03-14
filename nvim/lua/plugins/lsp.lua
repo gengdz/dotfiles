@@ -14,7 +14,7 @@ return {
   {
     "williamboman/mason.nvim",
     keys = {
-      { "<leader>m", "<Cmd>Mason<CR>" },
+      { "<leader>M", "<Cmd>Mason<CR>" },
     },
     opts = {
       ensure_installed = {
