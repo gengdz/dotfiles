@@ -9,6 +9,11 @@ return {
           ["o"] = "open",
         },
       },
+      filesystem = {
+        filtered_items = {
+          visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
+        },
+      },
     },
   },
 
@@ -84,6 +89,9 @@ return {
     lazy = true,
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>dv", "<cmd>DiffviewOpen<cr>" },
+    },
   },
   {
     "tom-anders/telescope-vim-bookmarks.nvim",
