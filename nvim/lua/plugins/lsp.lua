@@ -9,9 +9,9 @@ return {
       keys[#keys + 1] = { "gt", false }
       keys[#keys + 1] = { "gh", vim.lsp.buf.hover, desc = "Hover" }
     end,
-    -- opts = {
-      -- autoformat = false,
-    -- },
+    opts = {
+      autoformat = false,
+    },
   },
 
   {
@@ -32,25 +32,7 @@ return {
       local nls = require("null-ls")
       return {
         sources = {
-          nls.builtins.formatting.prettier.with({
-            -- 比默认少了 markdown
-            filetypes = {
-              "javascript",
-              "javascriptreact",
-              "typescript",
-              "typescriptreact",
-              "vue",
-              "css",
-              "scss",
-              "less",
-              "html",
-              "json",
-              "yaml",
-              "graphql",
-            },
-            prefer_local = "node_modules/.bin",
-          }),
-          -- nls.builtins.diagnostics.eslint,
+          nls.builtins.formatting.prettier,
           nls.builtins.formatting.stylua,
           nls.builtins.completion.spell,
         },

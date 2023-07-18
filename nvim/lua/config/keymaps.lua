@@ -42,9 +42,3 @@ vim.keymap.set("v", "L", "$", opts)
 
 -- 【禁用】内置的 windows 快捷键。useless
 vim.keymap.set("n", "<leader>ww", "<Nop>")
--- vim.keymap.del("n", "<leader>ww")
--- vim.keymap.del("n", "<leader>wd")
--- vim.keymap.del("n", "<leader>w-")
--- vim.keymap.del("n", "<leader>w|")
--- vim.keymap.del("n", "<leader>-")
--- vim.keymap.del("n", "<leader>|")
