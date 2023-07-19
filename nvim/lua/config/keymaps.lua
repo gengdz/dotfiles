@@ -16,6 +16,15 @@ vim.keymap.set("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increa
 -- 退出当前窗口
 vim.keymap.set("n", "<leader>q", ":q<cr>", opts)
 
+-- local formatOnSave = function()
+--   require("lazyvim.plugins.lsp.format").format({ force = true })
+--   -- vim.api.nvim_command("w")
+--   -- vim.api.nvim_input("<esc>")
+--   vim.api.nvim_input("<cmd>w<cr><esc>")
+-- end
+--
+-- vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", formatOnSave, opts)
+
 -- quickfix
 vim.keymap.set("n", "]Q", ":cnfile<cr>", opts)
 vim.keymap.set("n", "[Q", ":cpfile<cr>", opts)

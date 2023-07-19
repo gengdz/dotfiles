@@ -10,6 +10,12 @@ return {
         --   return filesize > 1024 * 10
         -- end,
       },
+      indent = {
+        disable = { "json" },
+      },
+      incremental_selection = {
+        disable = { "json" },
+      },
       ensure_installed = {
         "bash",
         "help",
