@@ -26,10 +26,10 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      { "<leader>ff", Util.telescope("find_files"), desc = "Find Plugin File" },
-      { "<leader>fg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
-      { "<leader>fb", Util.telescope("buffers"), desc = "Find in Buffers" },
-      { "<leader>fo", Util.telescope("oldfiles"), desc = "Find in Old Files" },
+      -- { "<leader>ff", Util.telescope("find_files"), desc = "Find Plugin File" },
+      -- { "<leader>fg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
+      -- { "<leader>fb", Util.telescope("buffers"), desc = "Find in Buffers" },
+      -- { "<leader>fo", Util.telescope("oldfiles"), desc = "Find in Old Files" },
     },
   },
 
