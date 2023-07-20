@@ -39,15 +39,6 @@ return {
   -- },
   --
   {
-    "phaazon/hop.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    keys = {
-      { "s", "<cmd>HopChar2<cr>" },
-    },
-    opts = {},
-  },
-  {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install", -- build 会失败，我手动执行了这一步。
     init = function()
@@ -95,7 +86,6 @@ return {
     },
     opts = {},
   },
-
   {
     "MattesGroeger/vim-bookmarks",
     lazy = true,
@@ -105,7 +95,16 @@ return {
       vim.g.bookmark_highlight_lines = 1
     end,
   },
-
+  {
+    "christoomey/vim-tmux-navigator",
+    keys = {
+      { "<C-h>", "<Cmd>TmuxNavigateLeft<CR>" },
+      { "<C-h>", "<Cmd>TmuxNavigateRight<CR>" },
+      { "<C-h>", "<Cmd>TmuxNavigateDown<CR>" },
+      { "<C-h>", "<Cmd>TmuxNavigateUp<CR>" },
+    },
+  },
+  --
   { "ggandor/flit.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
   { "folke/todo-comments.nvim", enabled = false },
