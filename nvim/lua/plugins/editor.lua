@@ -63,7 +63,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
       { "<leader>dvo", "<cmd>DiffviewOpen<cr>" },
-      { "<leader>dvh", "<cmd>DiffviewFileHistory<cr>" },
+      { "<leader>dvh", "<cmd>DiffviewFileHistory %<cr>" },
     },
   },
   {
