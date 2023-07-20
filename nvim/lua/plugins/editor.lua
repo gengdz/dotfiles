@@ -62,7 +62,8 @@ return {
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-      { "<leader>dv", "<cmd>DiffviewOpen<cr>" },
+      { "<leader>dvo", "<cmd>DiffviewOpen<cr>" },
+      { "<leader>dvh", "<cmd>DiffviewFileHistory<cr>" },
     },
   },
   {
