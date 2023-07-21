@@ -15,18 +15,6 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
-    keys = {
-      { "<leader>M", "<Cmd>Mason<CR>" },
-    },
-    opts = {
-      ensure_installed = {
-        "stylua",
-      },
-    },
-  },
-
-  {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function()
       local nls = require("null-ls")

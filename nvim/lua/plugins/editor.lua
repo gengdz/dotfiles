@@ -15,17 +15,16 @@ return {
     },
   },
   -- add telescope-fzf-native
-  -- {
-  --   "telescope.nvim",
-  --   dependencies = {
-  --     "nvim-telescope/telescope-fzf-native.nvim",
-  --     build = "make",
-  --     config = function()
-  --       require("telescope").load_extension("fzf")
-  --     end,
-  --   },
-  -- },
-  --
+  {
+    "telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      config = function()
+        require("telescope").load_extension("fzf")
+      end,
+    },
+  },
   {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install", -- build 会失败，我手动执行了这一步。
@@ -93,8 +92,7 @@ return {
       { "<C-h>", "<Cmd>TmuxNavigateUp<CR>" },
     },
   },
-  --
   { "ggandor/flit.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
-  { "folke/todo-comments.nvim", enabled = false },
+  -- { "folke/todo-comments.nvim", enabled = false },
 }

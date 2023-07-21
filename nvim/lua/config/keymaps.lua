@@ -50,6 +50,6 @@ vim.keymap.set("n", "L", "$", opts)
 vim.keymap.set("v", "H", "^", opts)
 vim.keymap.set("v", "L", "$", opts)
 
-vim.keymap.set("n", "<leader>wo", ":only<cr>")
+vim.keymap.set("n", "<leader>wo", ":only<cr>", opts)
 -- 【禁用】内置的 windows 快捷键。useless
 -- vim.keymap.set("n", "<leader>ww", "<Nop>")
