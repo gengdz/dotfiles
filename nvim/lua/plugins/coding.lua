@@ -22,7 +22,9 @@ return {
       opts.mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.abort(),
         ["<C-f>"] = cmp.mapping.abort(),
+        ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       })
     end,
   },

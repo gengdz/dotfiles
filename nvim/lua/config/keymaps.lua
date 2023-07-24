@@ -42,7 +42,6 @@ vim.keymap.set("n", "N", "Nzz", opts)
 vim.keymap.set("i", "<C-e>", "<End>", opts)
 vim.keymap.set("i", "<C-b>", "<Left>", opts)
 vim.keymap.set("i", "<C-f>", "<Right>", opts)
--- Insert --
 vim.keymap.set("i", "<C-a>", "<Home>", opts)
 
 vim.keymap.set("n", "H", "^", opts)
