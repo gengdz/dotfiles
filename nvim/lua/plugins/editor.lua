@@ -24,6 +24,18 @@ return {
       require("lsp-file-operations").setup({ debug = false })
     end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<c-t>"] = "select_tab",
+          },
+        },
+      },
+    },
+  },
   -- add telescope-fzf-native
   {
     "telescope.nvim",
@@ -100,6 +112,19 @@ return {
       { "<C-h>", "<Cmd>TmuxNavigateDown<CR>" },
       { "<C-h>", "<Cmd>TmuxNavigateUp<CR>" },
     },
+  },
+  {
+    "tiagovla/scope.nvim",
+    config = function()
+      vim.opt.sessionoptions = { -- required
+        "buffers",
+        "tabpages",
+        "globals",
+      }
+      require("telescope").load_extension("scope")
+      -- init.lua
+      require("scope").setup({})
+    end,
   },
   { "ggandor/flit.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
