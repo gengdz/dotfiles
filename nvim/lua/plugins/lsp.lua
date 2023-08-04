@@ -11,20 +11,36 @@ return {
     end,
     opts = {
       autoformat = false,
+      servers = {
+        html = {
+          -- filetypes = { "html" },
+        },
+      },
+      -- setup = {
+      --   html = function(_, opts)
+      --     local capabilities = vim.lsp.protocol.make_client_capabilities()
+      --     capabilities.textDocument.completion.completionItem.snippetSupport = true
+      --     require("lspconfig").html.setup({
+      --       on_attach = function() end,
+      --       capabilities = capabilities,
+      --     })
+      --   end,
+      -- },
     },
   },
 
   {
     "jose-elias-alvarez/null-ls.nvim",
-    opts = function()
+    opts = function(_, opts)
       local nls = require("null-ls")
-      return {
-        sources = {
-          nls.builtins.formatting.prettier,
-          nls.builtins.formatting.stylua,
-          nls.builtins.completion.spell,
-        },
-      }
+      table.insert(opts.sources, nls.builtins.formatting.prettier)
+      -- return {
+      --   sources = {
+      --     nls.builtins.formatting.prettier,
+      --     nls.builtins.formatting.stylua,
+      --     nls.builtins.completion.spell,
+      --   },
+      -- }
     end,
   },
 }

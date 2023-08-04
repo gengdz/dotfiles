@@ -17,7 +17,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.copilot" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- prettier 使用下面的方式没生效
-    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- import/override with your plugins
     { import = "plugins" },
   },
