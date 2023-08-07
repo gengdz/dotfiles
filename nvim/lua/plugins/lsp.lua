@@ -13,22 +13,20 @@ return {
       autoformat = false,
       servers = {
         html = {
-          -- filetypes = { "html" },
+          filetypes = { "html" },
         },
       },
-      -- setup = {
-      --   html = function(_, opts)
-      --     local capabilities = vim.lsp.protocol.make_client_capabilities()
-      --     capabilities.textDocument.completion.completionItem.snippetSupport = true
-      --     require("lspconfig").html.setup({
-      --       on_attach = function() end,
-      --       capabilities = capabilities,
-      --     })
-      --   end,
-      -- },
     },
   },
-
+  {
+    "AndrewRadev/inline_edit.vim",
+    lazy = true,
+    cmd = { "InlineEdit" },
+    keys = {
+      { "<leader>cI", "<cmd>InlineEdit<cr>", desc = "Inline Edit (JS inside <script> html)" },
+    },
+    config = function() end,
+  },
   {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
