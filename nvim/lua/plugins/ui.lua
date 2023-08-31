@@ -33,9 +33,6 @@ return {
     "akinsho/bufferline.nvim",
     keys = {
       -- 关闭除此外的所有buffer 理解为，bufer only
-      -- 左右切换
-      { "<S-j>", "<Cmd>BufferLineCyclePrev<CR>" },
-      { "<S-k>", "<Cmd>BufferLineCycleNext<CR>" },
       { "<leader>bo", "<Cmd>BufferLineCloseLeft<CR><Cmd>BufferLineCloseRight<CR>" },
       -- { "<leader>bo", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
     },

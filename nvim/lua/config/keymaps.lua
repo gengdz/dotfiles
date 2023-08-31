@@ -44,11 +44,6 @@ vim.keymap.set("i", "<C-b>", "<Left>", opts)
 vim.keymap.set("i", "<C-f>", "<Right>", opts)
 vim.keymap.set("i", "<C-a>", "<Home>", opts)
 
-vim.keymap.set("n", "H", "^", opts)
-vim.keymap.set("n", "L", "$", opts)
-vim.keymap.set("v", "H", "^", opts)
-vim.keymap.set("v", "L", "$", opts)
-
 vim.keymap.set("n", "<leader>wo", ":only<cr>", opts)
 -- 【禁用】内置的 windows 快捷键。useless
 -- vim.keymap.set("n", "<leader>ww", "<Nop>")
