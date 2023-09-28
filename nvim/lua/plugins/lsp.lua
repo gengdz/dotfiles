@@ -32,13 +32,7 @@ return {
     opts = function(_, opts)
       local nls = require("null-ls")
       table.insert(opts.sources, nls.builtins.formatting.prettier)
-      -- return {
-      --   sources = {
-      --     nls.builtins.formatting.prettier,
-      --     nls.builtins.formatting.stylua,
-      --     nls.builtins.completion.spell,
-      --   },
-      -- }
+      -- table.insert(opts.sources, nls.builtins.formatting.markdownlint)
     end,
   },
 }
