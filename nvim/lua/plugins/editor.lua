@@ -28,18 +28,54 @@ return {
     end,
   },
   {
+    "tiagovla/scope.nvim",
+    config = function()
+      vim.opt.sessionoptions = { -- required
+        "buffers",
+        "tabpages",
+        "globals",
+      }
+      require("telescope").load_extension("scope")
+      -- init.lua
+      require("scope").setup({})
+    end,
+  },
+  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function()
+          require("telescope").load_extension("fzf")
+        end,
+      },
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        keys = {
+          {
+            "<leader>sg",
+            function()
+              require("telescope").extensions.live_grep_args.live_grep_args()
+            end,
+            desc = "Grep (root dir)",
+          },
+        },
+        config = function()
+          require("telescope").load_extension("live_grep_args")
+        end,
+      },
     },
     opts = {
       defaults = {
         mappings = {
           i = {
+            ["<C-j>"] = function(...)
+              return require("telescope.actions").cycle_history_next(...)
+            end,
+            ["<C-k>"] = function(...)
+              return require("telescope.actions").cycle_history_prev(...)
+            end,
             ["<c-t>"] = "select_tab",
           },
         },
@@ -111,19 +147,6 @@ return {
       { "<C-h>", "<Cmd>TmuxNavigateDown<CR>" },
       { "<C-h>", "<Cmd>TmuxNavigateUp<CR>" },
     },
-  },
-  {
-    "tiagovla/scope.nvim",
-    config = function()
-      vim.opt.sessionoptions = { -- required
-        "buffers",
-        "tabpages",
-        "globals",
-      }
-      require("telescope").load_extension("scope")
-      -- init.lua
-      require("scope").setup({})
-    end,
   },
   { "ggandor/flit.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
