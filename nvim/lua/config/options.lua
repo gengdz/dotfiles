@@ -18,3 +18,6 @@ vim.g.im_select_default = "com.apple.keylayout.ABC"
 
 -- 可以自动重新读取当前正在缓冲区但其内容变化了的文件
 vim.o.autoread = true
+
+-- opt.nofoldenable = true
+opt.foldmethod = "manual"
