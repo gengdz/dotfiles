@@ -17,9 +17,16 @@ vim.keymap.set("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increa
 vim.keymap.set("n", "<leader>q", ":q<cr>", opts)
 
 local formatOnSave = function()
+  -- 获取当前缓冲区的文件类型
+  local file_type = vim.bo.filetype
+
+  -- 如果文件类型是 Markdown (.md)
+  if file_type == "markdown" or file_type == "md" then
+    print(file_type)
+    -- 调用 pangu 进行文本调整
+    vim.api.nvim_input("<cmd>Pangu<cr><esc>")
+  end
   require("lazyvim.plugins.lsp.format").format({ force = true })
-  -- vim.api.nvim_command("w")
-  -- vim.api.nvim_input("<esc>")
   vim.api.nvim_input("<cmd>w<cr><esc>")
 end
 

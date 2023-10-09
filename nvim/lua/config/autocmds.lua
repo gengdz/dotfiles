@@ -23,13 +23,13 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end,
 })
 
--- 自动保存
--- 当离开插入当前 buffer 时，保存文件
-vim.api.nvim_create_autocmd({ "BufLeave" }, {
-  pattern = { "*" },
-  command = "silent! wall",
-  nested = true,
-})
+-- -- 自动保存
+-- -- 当离开插入当前 buffer 时，保存文件
+-- vim.api.nvim_create_autocmd({ "BufLeave" }, {
+--   pattern = { "*" },
+--   command = "silent! wall",
+--   nested = true,
+-- })
 
 -- 自动保存
 -- 当离开 insert 模式，或者文本在 normal 模式中有变动时，自动将所有缓冲区中的变更写入到文件。
@@ -40,6 +40,13 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave" }, {
   command = "silent! wall",
   nested = true,
 })
+
+-- 保存时自动格式化 markdown
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*.markdown", "*.md", "*.text", "*.txt" },
+--   command = "Pangu",
+--   -- nested = true,
+-- })
 
 -- -- BufReadPost
 -- vim.api.nvim_create_autocmd("BufRead", {

@@ -17,6 +17,17 @@ return {
       },
     },
   },
+  { "hotoo/pangu.vim", ft = { "markdown" }, lazy = true, event = "VeryLazy" },
+  {
+    "folke/flash.nvim",
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        },
+      },
+    },
+  },
   {
     "antosha417/nvim-lsp-file-operations",
     dependencies = {
