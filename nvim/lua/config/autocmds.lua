@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave" }, {
 -- 保存时自动格式化 markdown
 -- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 --   pattern = { "*.markdown", "*.md", "*.text", "*.txt" },
---   command = "Pangu",
+--   command = "PanguAll",
 --   -- nested = true,
 -- })
 

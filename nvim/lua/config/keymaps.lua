@@ -22,9 +22,8 @@ local formatOnSave = function()
 
   -- 如果文件类型是 Markdown (.md)
   if file_type == "markdown" or file_type == "md" then
-    print(file_type)
     -- 调用 pangu 进行文本调整
-    vim.api.nvim_input("<cmd>Pangu<cr><esc>")
+    vim.api.nvim_input("<cmd>PanguAll<cr><esc>")
   end
   require("lazyvim.plugins.lsp.format").format({ force = true })
   vim.api.nvim_input("<cmd>w<cr><esc>")
