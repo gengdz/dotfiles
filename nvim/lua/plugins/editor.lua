@@ -30,6 +30,8 @@ return {
   },
   {
     "antosha417/nvim-lsp-file-operations",
+    lazy = true,
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-neo-tree/neo-tree.nvim",
@@ -40,6 +42,8 @@ return {
   },
   {
     "tiagovla/scope.nvim",
+    lazy = true,
+    event = "VeryLazy",
     config = function()
       vim.opt.sessionoptions = { -- required
         "buffers",
