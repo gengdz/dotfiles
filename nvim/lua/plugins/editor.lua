@@ -71,7 +71,9 @@ return {
           {
             "<leader>sg",
             function()
-              require("telescope").extensions.live_grep_args.live_grep_args()
+              -- require("telescope").extensions.live_grep_args.live_grep_args()
+              local cwd = require("lazyvim.util").get_root()
+              require("telescope").extensions.live_grep_args.live_grep_args({ search_dirs = { cwd } })
             end,
             desc = "Grep (root dir)",
           },
@@ -152,6 +154,8 @@ return {
     init = function()
       vim.g.bookmark_sign = "♥"
       vim.g.bookmark_highlight_lines = 1
+      vim.g.bookmark_save_per_working_dir = 1
+      vim.g.bookmark_auto_save = 1
     end,
   },
   {
