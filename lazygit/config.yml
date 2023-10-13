@@ -1,0 +1,9 @@
+gui:
+  windowSize: "normal" # one of 'normal' | 'half' | 'full' default is 'normal'
+  language: "en"
+os:
+  editPreset: "nvim"
+git:
+  log:
+    showGraph: "always"
+promptToReturnFromSubprocess: false
