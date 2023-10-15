@@ -25,7 +25,7 @@ local formatOnSave = function()
     -- 调用 pangu 进行文本调整
     vim.api.nvim_input("<cmd>PanguAll<cr><esc>")
   end
-  require("lazyvim.plugins.lsp.format").format({ force = true })
+  require("lazyvim.util").format({ force = true })
   vim.api.nvim_input("<cmd>w<cr><esc>")
 end
 

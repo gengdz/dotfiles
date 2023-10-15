@@ -7,28 +7,18 @@ return {
       { "<c-b>", false, mode = { "i", "n", "s" } },
     },
   },
-
   {
-    "goolord/alpha-nvim",
-    optional = true,
+    "nvimdev/dashboard-nvim",
     opts = function(_, dashboard)
-      local logo = [[]]
-      dashboard.section.header.val = vim.split(logo, "\n")
       local buttons = {
-        dashboard.button("e", " " .. " Explorer NeoTree", ":Neotree<CR>"),
-        dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+        { action = ":Neotree<CR>", desc = " Explorer NeoTree", icon = " ", key = "e" },
+        dashboard.config.center[2],
       }
-      for _, button in ipairs(buttons) do
-        button.opts.hl = "AlphaButtons"
-        button.opts.hl_shortcut = "AlphaShortcut"
-      end
-      table.remove(dashboard.section.buttons.val, 1)
-      table.insert(dashboard.section.buttons.val, 1, buttons[1])
-      table.insert(dashboard.section.buttons.val, 2, buttons[2])
+      dashboard.config.header = vim.split(string.rep("\n", 8) .. [[]] .. "\n\n", "\n")
+      dashboard.config.center[1].icon = " "
+      dashboard.config.center[8] = buttons[1]
     end,
   },
-
-  -- bufferline
   {
     "akinsho/bufferline.nvim",
     keys = {
@@ -38,7 +28,7 @@ return {
     },
     opts = {
       options = {
-        always_show_bufferline = true,
+        -- always_show_bufferline = true,
       },
     },
   },
