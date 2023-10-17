@@ -1,12 +1,4 @@
 return {
-  -- 切换主题
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "everforest",
-  --   },
-  -- },
-
   {
     "catppuccin/nvim",
     lazy = true,

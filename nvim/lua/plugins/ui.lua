@@ -21,11 +21,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    keys = {
-      -- 关闭除此外的所有buffer 理解为，bufer only
-      { "<leader>bo", "<Cmd>BufferLineCloseLeft<CR><Cmd>BufferLineCloseRight<CR>" },
-      -- { "<leader>bo", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-    },
+    keys = {},
     opts = {
       options = {
         always_show_bufferline = true,
