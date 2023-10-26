@@ -11,8 +11,13 @@ return {
     "nvimdev/dashboard-nvim",
     opts = function(_, dashboard)
       local buttons = {
-        { action = ":Neotree<CR>", desc = " Explorer NeoTree", icon = " ", key = "e" },
-        dashboard.config.center[2],
+        {
+          action = ":Neotree<CR>",
+          desc = " Explorer NeoTree",
+          icon = " ",
+          key = "e",
+          key_format = "  %s",
+        },
       }
       dashboard.config.header = vim.split(string.rep("\n", 8) .. [[]] .. "\n\n", "\n")
       dashboard.config.center[1].icon = " "
