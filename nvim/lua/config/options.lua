@@ -20,4 +20,4 @@ vim.g.im_select_default = "com.apple.keylayout.ABC"
 vim.o.autoread = true
 
 -- opt.nofoldenable = true
-opt.foldmethod = "manual"
+-- opt.foldmethod = "manual"
