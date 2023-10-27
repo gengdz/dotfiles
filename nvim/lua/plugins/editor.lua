@@ -74,6 +74,12 @@ return {
           require("telescope").load_extension("live_grep_args")
         end,
       },
+      {
+        "ahmedkhalf/project.nvim",
+        opts = {
+          manual_mode = false,
+        },
+      },
     },
     opts = {
       defaults = {
@@ -93,7 +99,7 @@ return {
   },
   {
     "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install", -- build 会失败，我手动执行了这一步。
+    build = "cd app && npm install",
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
       vim.g.mkdp_command_for_global = 1
