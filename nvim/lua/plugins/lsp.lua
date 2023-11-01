@@ -10,7 +10,6 @@ return {
       -- keys[#keys + 1] = { "gh", vim.lsp.buf.hover, desc = "Hover" }
     end,
     opts = {
-      autoformat = false,
       servers = {
         html = {
           filetypes = { "html" },

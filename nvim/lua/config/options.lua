@@ -12,6 +12,8 @@ opt.spell = false
 
 opt.wrap = true
 
+vim.g.autoformat = false
+
 -- 自动切换输入法
 vim.g.im_select_get_im_cmd = "['im-select']"
 vim.g.im_select_default = "com.apple.keylayout.ABC"
