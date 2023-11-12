@@ -48,4 +48,4 @@ vim.keymap.set("i", "<C-f>", "<Right>", opts)
 vim.keymap.set("i", "<C-a>", "<Home>", opts)
 
 vim.keymap.set("n", "<leader>wo", ":only<cr>", opts)
-vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", opts)
+vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>", opts)
