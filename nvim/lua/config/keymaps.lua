@@ -4,9 +4,6 @@
 
 local opts = { noremap = true, silent = true }
 
--- 使用 Enter 插入空行。但是这样的快捷键会和 quickfix 冲突
--- vim.keymap.set("n", "<CR>", "o<Esc>", opts)
-
 -- Resize window using <alt> arrow keys 默认是 ctrl 但是在 tmux 没生效。所以换成了 alt
 vim.keymap.set("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 vim.keymap.set("n", "<A-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
