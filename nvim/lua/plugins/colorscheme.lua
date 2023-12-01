@@ -15,7 +15,8 @@ return {
           for k, v in pairs(colTable) do
             if type(v) == "string" and v:sub(1, 1) == "#" then
               -- 变暗十六进制的颜色值
-              colTable[k] = util.darken(v, 0.85)
+              -- colTable[k] = util.darken(v, 0.85)
+              colTable[k] = util.darken(v, 0.90)
             end
             -- 如果类型是 table，则跳过，不进行变暗处理
           end
