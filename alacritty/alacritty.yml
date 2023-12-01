@@ -61,5 +61,12 @@ selection:
 
 live_config_reload: true
 
+shell:
+  program: /bin/zsh
+  args:
+    - --login
+    - -c
+    - "tmux new -A -s we -d; tmux run-shell -t x /Users/xingya/.tmux/plugins/tmux-resurrect/scripts/restore.sh ; tmux attach -t we"
+
 key_bindings:
   - { key: Slash, mods: Control, chars: "\x1f" }
