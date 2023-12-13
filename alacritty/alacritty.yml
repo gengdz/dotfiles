@@ -6,7 +6,8 @@ window:
     x: 2
     y: 2
   startup_mode: SimpleFullscreen
-  decorations: none
+  # startup_mode: Maximized
+  # decorations: buttonless
   option_as_alt: Both
   # opacity: 0.9
 
