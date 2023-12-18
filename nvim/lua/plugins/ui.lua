@@ -26,7 +26,6 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    keys = {},
     opts = {
       options = {
         always_show_bufferline = true,

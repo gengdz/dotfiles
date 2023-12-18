@@ -20,12 +20,12 @@ return {
   { "brglng/vim-im-select" },
   {
     "echasnovski/mini.surround",
-    opts = {
-      mappings = {
+    opts = function(_, opts)
+      opts.mappings = vim.tbl_deep_extend("force", opts.mappings, {
         add = "ys", -- Add surrounding in Normal and Visual modes
         delete = "ds", -- Delete surrounding
         replace = "cs", -- Replace surrounding
-      },
-    },
+      })
+    end,
   },
 }
