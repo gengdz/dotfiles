@@ -27,28 +27,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 -- 当离开 insert 模式，或者文本在 normal 模式中有变动时，自动将所有缓冲区中的变更写入到文件。
 -- 其中 nested 是指该自动命令可以被其他 BufWrite 自动命令的事件所依赖
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave" }, {
-  -- pattern = { "gitcommit", "markdown", "*.md" },
   pattern = { "*" },
   command = "silent! wall",
   nested = true,
 })
-
--- -- BufReadPost
--- vim.api.nvim_create_autocmd("BufRead", {
---   pattern = { "*" },
---   callback = function(ev)
---     -- print(string.format("event fired: s", vim.inspect(ev)))
---     local params = vim.inspect(ev)
---     -- print(params)
---     vim.treesitter.stop(params.buf)
---
---     local filesize = vim.fn.getfsize(vim.fn.expand("%:p"))
---     -- print(filesize)
---
---     if filesize > 10240 then
---       -- print(filesize)
---       vim.treesitter.stop(params.buf)
---       return
---     end
---   end,
--- })

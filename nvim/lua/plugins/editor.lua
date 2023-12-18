@@ -51,8 +51,7 @@ return {
           {
             "<leader>sg",
             function()
-              -- local cwd = require("lazyvim.util").root.get()
-              local cwd = require("lazyvim.util").root.cwd();
+              local cwd = require("lazyvim.util").root.get()
               require("telescope").extensions.live_grep_args.live_grep_args({ search_dirs = { cwd } })
             end,
             desc = "Grep (root dir)",
