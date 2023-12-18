@@ -51,7 +51,8 @@ return {
           {
             "<leader>sg",
             function()
-              local cwd = require("lazyvim.util").root.get()
+              -- local cwd = require("lazyvim.util").root.get()
+              local cwd = require("lazyvim.util").root.cwd();
               require("telescope").extensions.live_grep_args.live_grep_args({ search_dirs = { cwd } })
             end,
             desc = "Grep (root dir)",
@@ -72,11 +73,8 @@ return {
       defaults = {
         mappings = {
           i = {
-            ["<C-j>"] = function(...)
-              return require("telescope.actions").cycle_history_next(...)
-            end,
-            ["<C-k>"] = function(...)
-              return require("telescope.actions").cycle_history_prev(...)
+            ["<c-k>"] = function(prompt_bufnr)
+              return require("telescope-live-grep-args.actions").quote_prompt()(prompt_bufnr)
             end,
             ["<c-t>"] = "select_tab",
           },
