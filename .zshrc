@@ -1,0 +1,100 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/xingya/.oh-my-zsh"
+
+export RIPGREP_CONFIG_PATH="/Users/xingya/.ripgreprc"
+
+# 让提示代码为灰色
+if [[ $TMUX != "" ]] then
+    export TERM="tmux-256color"
+else
+    export TERM="xterm-256color"
+fi
+
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C0'
+# #POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C0'
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0C2'
+# #POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0C2'
+# # 左边的提示元素
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs node_version)
+# # 关闭右边的信息
+# POWERLEVEL9K_DISABLE_RPROMPT=true
+# # 右边的提示元素
+# # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time ip)
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+# POWERLEVEL9K_SHORTEN_DELIMITER=..
+#
+# # 是不是需要两行显示
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=$'\n'
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uF460%F{073}\uF460%F{109}\uF460%f "
+
+
+plugins=(
+    git
+    autojump
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    vi-mode
+    web-search
+    colored-man-pages
+)
+
+
+source $ZSH/oh-my-zsh.sh
+
+export EDITOR='nvim'
+
+
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+
+
+alias gs="git status"
+alias gc="git commit -m "
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  "
+alias gb="git branch"
+alias ga="git add ."
+alias go="git checkout"
+alias vi="nvim"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/Users/xingya/.bun/_bun" ] && source "/Users/xingya/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/xingya/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export PATH=~/.npm-global/bin:$PATH
+
+
+# lazygit 配置目录
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
