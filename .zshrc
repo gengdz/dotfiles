@@ -17,28 +17,13 @@ else
     export TERM="xterm-256color"
 fi
 
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C0'
-# #POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C0'
-# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0C2'
-# #POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0C2'
-# # 左边的提示元素
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs node_version)
-# # 关闭右边的信息
-# POWERLEVEL9K_DISABLE_RPROMPT=true
-# # 右边的提示元素
-# # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time ip)
+# powerlevel10k 主题配置备份。配置不应该写在这里了。
 # POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # POWERLEVEL9K_SHORTEN_DELIMITER=..
-#
-# # 是不是需要两行显示
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#
 # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=$'\n'
 # POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uF460%F{073}\uF460%F{109}\uF460%f "
-
 
 plugins=(
     git
@@ -50,15 +35,13 @@ plugins=(
     colored-man-pages
 )
 
+# vi-mode 配置
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
 
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
-
-
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-
 
 alias gs="git status"
 alias gc="git commit -m "
@@ -92,9 +75,11 @@ esac
 
 export PATH=~/.npm-global/bin:$PATH
 
-
 # lazygit 配置目录
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# brew 换源
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
