@@ -67,7 +67,7 @@ shell:
   args:
     - --login
     - -c
-    - "tmux new -A -s we"
+    - "tmux new -A -s we || exec zsh"
     # 如果没有自动恢复插件的插件，可以使用下面的方式，同样是可以的。
     # - "tmux new -A -s we -d; tmux run-shell -t x /Users/xingya/.tmux/plugins/tmux-resurrect/scripts/restore.sh ; tmux attach -t we"
 
