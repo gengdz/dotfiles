@@ -4,7 +4,7 @@
 
 local opt = vim.opt
 
-opt.history = 1000
+opt.history = 10000
 opt.list = false
 
 -- 关闭拼写检查

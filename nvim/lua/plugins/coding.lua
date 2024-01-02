@@ -7,13 +7,10 @@ return {
         ["<C-b>"] = cmp.mapping.abort(),
         ["<C-f>"] = cmp.mapping.abort(),
       })
-      -- table.insert(opts.sources, {
-      --   {
-      --     name = "nvim_lsp",
-      --     entry_filter = function(entry)
-      --       return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
-      --     end,
-      --   },
+      -- table.insert(opts.sources, 1, {
+      --   name = "cmp_tabnine",
+      --   group_index = 1,
+      --   priority = 1,
       -- })
     end,
   },
