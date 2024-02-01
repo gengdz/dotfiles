@@ -33,11 +33,13 @@ plugins=(
     vi-mode
     web-search
     colored-man-pages
+    you-should-use
 )
 
 # vi-mode 配置
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
+export YSU_MESSAGE_POSITION="after"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,6 +52,7 @@ alias gb="git branch"
 alias ga="git add ."
 alias go="git checkout"
 alias vi="nvim"
+alias python="python3"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
