@@ -6,9 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/xingya/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
-export RIPGREP_CONFIG_PATH="/Users/xingya/.ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # 让提示代码为灰色
 if [[ $TMUX != "" ]] then
@@ -51,6 +51,7 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias gb="git branch"
 alias ga="git add ."
 alias go="git checkout"
+alias gpp="git push; we publish -d"
 alias vi="nvim"
 alias python="python3"
 
