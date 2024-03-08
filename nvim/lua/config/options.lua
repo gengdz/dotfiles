@@ -14,10 +14,6 @@ opt.wrap = true
 
 vim.g.autoformat = false
 
--- 自动切换输入法
-vim.g.im_select_get_im_cmd = "['im-select']"
-vim.g.im_select_default = "com.apple.keylayout.ABC"
-
 -- 可以自动重新读取当前正在缓冲区但其内容变化了的文件
 vim.o.autoread = true
 

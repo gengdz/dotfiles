@@ -14,7 +14,12 @@ return {
       -- })
     end,
   },
-  { "brglng/vim-im-select" },
+  {
+    "keaising/im-select.nvim",
+    config = function()
+      require("im_select").setup({})
+    end,
+  },
   {
     "echasnovski/mini.surround",
     opts = function(_, opts)
