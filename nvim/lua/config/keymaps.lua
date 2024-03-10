@@ -27,6 +27,12 @@ end
 
 vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", formatOnSave, opts)
 
+vim.keymap.set("n", "]t", "<cmd>tabnext<cr>", opts)
+vim.keymap.set("n", "[t", "<cmd>tabprevious<cr>", opts)
+
+vim.keymap.set("n", "|", "<cmd>vsplit<cr>", opts)
+vim.keymap.set("n", "-", "<cmd>split<cr>", opts)
+
 -- quickfix
 -- 展示下一个文件中的第一个错误。]q 展示本文件的下一个错误。
 vim.keymap.set("n", "]Q", ":cnfile<cr>", opts)
