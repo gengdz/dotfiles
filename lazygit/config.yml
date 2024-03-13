@@ -7,3 +7,9 @@ git:
   log:
     showGraph: "always"
 promptToReturnFromSubprocess: false
+# customCommands:
+#   - key: ":"
+#     context: "global"
+#     command: "zsh -ic"
+#     subprocess: false
+#     showOutput: true
