@@ -51,7 +51,7 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias gb="git branch"
 alias ga="git add ."
 alias go="git checkout"
-alias gpp="git push; we publish -d"
+alias gpp="git push && we publish -d"
 alias vi="nvim"
 alias python="python3"
 
