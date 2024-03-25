@@ -6,7 +6,7 @@ os:
 git:
   log:
     showGraph: "always"
-promptToReturnFromSubprocess: false
+# promptToReturnFromSubprocess: false
 # customCommands:
 #   - key: ":"
 #     context: "global"
