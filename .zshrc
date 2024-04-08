@@ -5,10 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 
 # 让提示代码为灰色
 if [[ $TMUX != "" ]] then
@@ -24,6 +26,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # POWERLEVEL9K_SHORTEN_DELIMITER=..
 # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=$'\n'
 # POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uF460%F{073}\uF460%F{109}\uF460%f "
+
+[ -f /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh
 
 plugins=(
     git
@@ -56,27 +60,11 @@ alias vi="nvim"
 alias python="python3"
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Set up fzf key bindings and fuzzy completion
+[ -n "$(command -v fzf)" ] && eval "$(fzf --zsh)"
 
 # fnm
-eval "$(fnm env --use-on-cd)"
-
-# bun completions
-[ -s "/Users/xingya/.bun/_bun" ] && source "/Users/xingya/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/Users/xingya/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-export PATH=~/.npm-global/bin:$PATH
+[ -n "$(command -v fnm)"] && eval "$(fnm env --use-on-cd)"
 
 # lazygit 配置目录
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -87,4 +75,5 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bot
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
+

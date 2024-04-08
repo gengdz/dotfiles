@@ -19,3 +19,17 @@ vim.o.autoread = true
 
 -- opt.nofoldenable = true
 -- opt.foldmethod = "manual"
+
+-- 在 init.lua 中定义 WSL 剪贴板模块
+vim.g.clipboard = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = [[powershell.exe -c "[Console]::Out.Write($(Get-Clipboard -Raw).Replace('\r', ''))"]],
+    ["*"] = [[powershell.exe -c "[Console]::Out.Write($(Get-Clipboard -Raw).Replace('\r', ''))"]],
+  },
+  cache_enabled = 0,
+}
