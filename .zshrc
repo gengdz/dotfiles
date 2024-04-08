@@ -64,7 +64,7 @@ alias python="python3"
 [ -n "$(command -v fzf)" ] && eval "$(fzf --zsh)"
 
 # fnm
-[ -n "$(command -v fnm)"] && eval "$(fnm env --use-on-cd)"
+[ -n "$(command -v fnm)" ] && eval "$(fnm env --use-on-cd)"
 
 # lazygit 配置目录
 export XDG_CONFIG_HOME="$HOME/.config"
