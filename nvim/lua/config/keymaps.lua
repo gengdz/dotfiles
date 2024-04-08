@@ -33,11 +33,6 @@ vim.keymap.set("n", "<leader>wo", ":only<cr>", opts)
 vim.keymap.set("n", "]Q", ":cnfile<cr>", opts)
 vim.keymap.set("n", "[Q", ":cpfile<cr>", opts)
 
--- 复制全部内容
-vim.keymap.set("n", "yie", ":%y<cr>", opts)
-vim.keymap.set("n", "die", ":%d<cr>", opts)
-vim.keymap.set("n", "vie", "ggVG", opts)
-
 vim.keymap.set("i", "<C-e>", "<End>", opts)
 vim.keymap.set("i", "<C-b>", "<Left>", opts)
 vim.keymap.set("i", "<C-f>", "<Right>", opts)
