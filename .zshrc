@@ -21,12 +21,6 @@ fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# powerlevel10k 主题配置备份。配置不应该写在这里了。
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-# POWERLEVEL9K_SHORTEN_DELIMITER=..
-# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=$'\n'
-# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uF460%F{073}\uF460%F{109}\uF460%f "
-
 [ -f /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh
 
 plugins=(
@@ -59,15 +53,11 @@ alias gpp="git push && we publish -d"
 alias vi="nvim"
 alias python="python3"
 
-
 # Set up fzf key bindings and fuzzy completion
 [ -n "$(command -v fzf)" ] && eval "$(fzf --zsh)"
 
 # fnm
 [ -n "$(command -v fnm)" ] && eval "$(fnm env --use-on-cd)"
-
-# lazygit 配置目录
-export XDG_CONFIG_HOME="$HOME/.config"
 
 # brew 
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
