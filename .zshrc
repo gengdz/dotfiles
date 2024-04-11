@@ -12,6 +12,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # 让提示代码为灰色
 if [[ $TMUX != "" ]] then
     export TERM="tmux-256color"
