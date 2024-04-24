@@ -25,12 +25,9 @@ return {
         darkenColors(c)
       end,
       on_highlights = function(hl, c)
-        hl["@variable"] = {
-          fg = c.yellow,
-        }
-        hl["@parameter"] = {
-          fg = c.fg,
-        }
+        hl["@variable"] = { fg = c.yellow }
+        hl["@lsp.type.variable"] = { fg = c.yellow }
+        hl["@variable.parameter"] = { fg = c.fg }
       end,
     },
   },
