@@ -26,7 +26,7 @@ return {
       end,
       on_highlights = function(hl, c)
         hl["@variable"] = { fg = c.yellow }
-        hl["@lsp.type.variable"] = { fg = c.yellow }
+        hl["@lsp.type.variable"] = { link = "@variable" }
         hl["@variable.parameter"] = { fg = c.fg }
       end,
     },
