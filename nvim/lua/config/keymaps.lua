@@ -45,3 +45,7 @@ vim.keymap.set("n", "]t", "<cmd>tabnext<cr>", opts)
 vim.keymap.set("n", "[t", "<cmd>tabprevious<cr>", opts)
 vim.keymap.set("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", opts)
+
+-- n,N center
+vim.keymap.set("n", "n", "nzz", opts)
+vim.keymap.set("n", "N", "Nzz", opts)
