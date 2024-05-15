@@ -1,0 +1,18 @@
+# Search hidden files and directories.
+--hidden
+
+# Searches case insensitively.
+--smart-case
+
+# 不搜索 .git 文件夹
+--glob=!.git/*
+
+# 不搜索 .*-lock 文件夹
+--glob=!{*-lock.*}
+
+--type-add
+tsx:*.tsx
+
+--type-add
+jsx:*.jsx
+
