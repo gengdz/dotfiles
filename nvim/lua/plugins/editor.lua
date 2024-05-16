@@ -18,16 +18,6 @@ return {
     },
   },
   {
-    "folke/flash.nvim",
-    opts = {
-      modes = {
-        search = {
-          enabled = false,
-        },
-      },
-    },
-  },
-  {
     "tiagovla/scope.nvim",
     lazy = true,
     event = "VeryLazy",
