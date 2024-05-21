@@ -125,7 +125,5 @@ return {
       { "<C-h>", "<Cmd>TmuxNavigateUp<CR>" },
     },
   },
-  { "ggandor/flit.nvim", enabled = false },
-  { "ggandor/leap.nvim", enabled = false },
   { "folke/todo-comments.nvim", enabled = false },
 }
