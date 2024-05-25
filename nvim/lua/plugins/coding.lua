@@ -30,4 +30,15 @@ return {
       })
     end,
   },
+  {
+    "garymjr/nvim-snippets",
+    opts = {
+      extended_filetypes = {
+        javascriptreact = { "javascript" },
+        typescriptreact = { "javascript", "typescript" },
+      },
+    },
+    -- 目前还不成熟 nvim snippets 经过测试，目前还不完善。输入 rfc 会报错 vim.snippet failed to parse snippet
+    enabled = false,
+  },
 }
