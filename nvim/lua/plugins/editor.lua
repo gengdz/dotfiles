@@ -92,8 +92,8 @@ return {
     lazy = true,
     event = "VeryLazy",
     keys = {
-      { "<leader>dvo", "<cmd>DiffviewOpen<cr>" },
-      { "<leader>dvh", "<cmd>DiffviewFileHistory %<cr>" },
+      { "<leader>gdo", "<cmd>DiffviewOpen<cr>" },
+      { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>" },
     },
   },
   {
