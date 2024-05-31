@@ -7,11 +7,11 @@ return {
         ["<C-b>"] = cmp.mapping.abort(),
         ["<C-f>"] = cmp.mapping.abort(),
       })
-      -- table.insert(opts.sources, 1, {
-      --   name = "cmp_tabnine",
-      --   group_index = 1,
-      --   priority = 1,
-      -- })
+      table.insert(opts.sources, 1, {
+        name = "codeium",
+        group_index = 1,
+        priority = 1,
+      })
     end,
   },
   {
