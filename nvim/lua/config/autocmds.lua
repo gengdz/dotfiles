@@ -3,11 +3,24 @@
 -- Add any additional autocmds here
 
 -- 不需要拼写检查
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "gitcommit", "markdown" },
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "gitcommit", "markdown" },
+--   callback = function()
+--     vim.opt_local.spell = false
+--     vim.wo.conceallevel = 0
+--   end,
+-- })
+
+-- 设置终端的 TERM
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = { "*" },
   callback = function()
-    vim.opt_local.spell = false
-    vim.wo.conceallevel = 0
+    local buf_name = vim.api.nvim_buf_get_name(0)
+
+    if buf_name:match("/bin/zsh$") then
+      -- 发送设置环境变量的命令
+      vim.fn.chansend(vim.b.terminal_job_id, "export TERM=xterm-256color; clear\n")
+    end
   end,
 })
 
