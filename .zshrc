@@ -14,12 +14,14 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# 让提示代码为灰色
-if [[ $TMUX != "" ]] then
-    export TERM="tmux-256color"
-else
-    export TERM="xterm-256color"
-fi
+# TERM 环境变量用于告知应用程序当前终端的类型，从而使应用程序能够正确地操作终端。这包括文本的显示方式、颜色支持、特殊键的处理等。
+export TERM="xterm-256color"
+
+# if [[ $TMUX != "" ]] then
+#     export TERM="tmux-256color"
+# else
+#     export TERM="xterm-256color"
+# fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -56,7 +58,6 @@ alias ga="git add ."
 alias go="git checkout"
 alias gpp="git push && we publish -d"
 alias vi="nvim"
-alias python="python3"
 
 # Set up fzf key bindings and fuzzy completion
 [ -n "$(command -v fzf)" ] && eval "$(fzf --zsh)"
