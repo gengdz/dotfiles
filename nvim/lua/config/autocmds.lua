@@ -3,13 +3,13 @@
 -- Add any additional autocmds here
 
 -- 不需要拼写检查
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = { "gitcommit", "markdown" },
---   callback = function()
---     vim.opt_local.spell = false
---     vim.wo.conceallevel = 0
---   end,
--- })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.spell = false
+    vim.wo.conceallevel = 0
+  end,
+})
 
 -- 设置终端的 TERM
 vim.api.nvim_create_autocmd("TermOpen", {
