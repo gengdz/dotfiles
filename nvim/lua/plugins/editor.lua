@@ -13,6 +13,16 @@ return {
     },
   },
   {
+    "ibhagwan/fzf-lua",
+    event = "VeryLazy",
+    -- enabled = false,
+    opts = {
+      grep = {
+        rg_glob = true,
+      },
+    },
+  },
+  {
     "tiagovla/scope.nvim",
     lazy = true,
     event = "VeryLazy",
