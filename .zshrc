@@ -60,7 +60,7 @@ alias vi="nvim"
 alias python="python3"
 
 # Set up fzf key bindings and fuzzy completion
-[ -n "$(command -v fzf)" ] && eval "$(fzf --zsh)"
+[ -n "$(command -v fzf)" ] && source <(fzf --zsh)
 
 # fnm
 [ -n "$(command -v fnm)" ] && eval "$(fnm env --use-on-cd)"
