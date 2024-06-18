@@ -13,16 +13,6 @@ return {
     },
   },
   {
-    "ibhagwan/fzf-lua",
-    event = "VeryLazy",
-    -- enabled = false,
-    opts = {
-      grep = {
-        rg_glob = true,
-      },
-    },
-  },
-  {
     "tiagovla/scope.nvim",
     lazy = true,
     event = "VeryLazy",
@@ -32,49 +22,9 @@ return {
         "tabpages",
         "globals",
       }
-      require("telescope").load_extension("scope")
       -- init.lua
       require("scope").setup({})
     end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      {
-        "nvim-telescope/telescope-live-grep-args.nvim",
-        keys = {
-          {
-            "<leader>sg",
-            function()
-              local cwd = require("lazyvim.util").root()
-              require("telescope").extensions.live_grep_args.live_grep_args({ search_dirs = { cwd } })
-            end,
-            desc = "Grep (root dir)",
-          },
-        },
-        config = function()
-          require("telescope").load_extension("live_grep_args")
-        end,
-      },
-      {
-        "ahmedkhalf/project.nvim",
-        opts = {
-          manual_mode = false,
-        },
-      },
-    },
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ["<c-k>"] = function(prompt_bufnr)
-              return require("telescope-live-grep-args.actions").quote_prompt()(prompt_bufnr)
-            end,
-            ["<c-t>"] = "select_tab",
-          },
-        },
-      },
-    },
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -102,13 +52,42 @@ return {
     },
   },
   {
-    "tom-anders/telescope-vim-bookmarks.nvim",
-    lazy = true,
-    event = "VeryLazy",
+    "christoomey/vim-tmux-navigator",
     keys = {
-      { "ma", "<Cmd>Telescope vim_bookmarks all<CR>" },
+      { "<C-h>", "<Cmd>TmuxNavigateLeft<CR>" },
+      { "<C-h>", "<Cmd>TmuxNavigateRight<CR>" },
+      { "<C-h>", "<Cmd>TmuxNavigateDown<CR>" },
+      { "<C-h>", "<Cmd>TmuxNavigateUp<CR>" },
     },
-    opts = {},
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    opts = {
+      manual_mode = false,
+    },
+  },
+  {
+    "ibhagwan/fzf-lua",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      opts.grep = vim.tbl_deep_extend("force", opts.grep, {
+        rg_glob = true,
+        rg_glob_fn = function(query, _opts)
+          local regex, flags = query:match("^(.-)%s%-%-(.*)$")
+          -- If no separator is detected will return the original query
+          return (regex or query), flags
+        end,
+      })
+      opts.keymap = {
+        builtin = {
+          -- neovim `:tmap` mappings for the fzf win
+          ["<F1>"] = "toggle-help",
+        },
+      }
+      local config = require("fzf-lua.config")
+      local actions = require("fzf-lua.actions")
+      config.defaults.actions.files["ctrl-t"] = actions.file_tabedit
+    end,
   },
   {
     "MattesGroeger/vim-bookmarks",
@@ -120,15 +99,91 @@ return {
       vim.g.bookmark_save_per_working_dir = 1
       vim.g.bookmark_auto_save = 1
     end,
+    keys = {
+      {
+        "ma",
+        function()
+          local fzf_lua = require("fzf-lua")
+          local cwd = require("lazyvim.util").root()
+          local G = require("util/plugin")
+          local bookmarks = G.get_bookmarks(vim.fn["bm#all_files"](), { cwd = cwd })
+
+          local lines = {}
+          for _, bookmark in ipairs(bookmarks) do
+            local line = string.format(
+              "%s ┃ %s ┃ %s",
+              G.pad_right_or_cut(string.format("%d", bookmark.lnum), 4),
+              G.pad_right_or_cut(bookmark.text, 60),
+              bookmark.filename
+            )
+            table.insert(lines, line)
+          end
+
+          fzf_lua.fzf_exec(lines, {
+            winopts = {
+              title = "Bookmarks",
+              title_pos = "center",
+              preview = {
+                horizontal = "right:40%",
+                layout = "horizontal",
+              },
+            },
+            previewer = G.MyPreviewer,
+            actions = {
+              ["default"] = function(selected, opts)
+                local line, text, file = selected[1]:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
+                fzf_lua.actions.file_edit({ string.format("%s:%s:%s", file, line, 1) }, opts)
+              end,
+            },
+          })
+        end,
+        desc = "Bookmarks all marks",
+      },
+    },
   },
   {
-    "christoomey/vim-tmux-navigator",
-    keys = {
-      { "<C-h>", "<Cmd>TmuxNavigateLeft<CR>" },
-      { "<C-h>", "<Cmd>TmuxNavigateRight<CR>" },
-      { "<C-h>", "<Cmd>TmuxNavigateDown<CR>" },
-      { "<C-h>", "<Cmd>TmuxNavigateUp<CR>" },
+    "nvim-telescope/telescope.nvim",
+    enabled = false,
+    dependencies = {
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        keys = {
+          {
+            "<leader>sg",
+            function()
+              local cwd = require("lazyvim.util").root()
+              require("telescope").extensions.live_grep_args.live_grep_args({ search_dirs = { cwd } })
+            end,
+            desc = "Grep (root dir)",
+          },
+        },
+        config = function()
+          require("telescope").load_extension("live_grep_args")
+        end,
+      },
     },
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<c-k>"] = function(prompt_bufnr)
+              return require("telescope-live-grep-args.actions").quote_prompt()(prompt_bufnr)
+            end,
+            ["<c-t>"] = "select_tab",
+          },
+        },
+      },
+    },
+  },
+  {
+    "tom-anders/telescope-vim-bookmarks.nvim",
+    enabled = false,
+    lazy = true,
+    event = "VeryLazy",
+    keys = {
+      { "ma", "<Cmd>Telescope vim_bookmarks all<CR>" },
+    },
+    opts = {},
   },
   { "folke/todo-comments.nvim", enabled = false },
 }
