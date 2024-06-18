@@ -80,6 +80,8 @@ return {
       })
       opts.keymap = {
         builtin = {
+          ["<C-d>"] = "preview-page-down",
+          ["<C-u>"] = "preview-page-up",
           -- neovim `:tmap` mappings for the fzf win
           ["<F1>"] = "toggle-help",
         },
