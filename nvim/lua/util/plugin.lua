@@ -48,6 +48,8 @@ function M.get_bookmarks(files, opts)
   return bookmarks
 end
 
+M.bookmarks_map = {}
+
 local builtin = require("fzf-lua.previewer.builtin")
 
 -- Inherit from the "buffer_or_file" previewer
@@ -61,8 +63,7 @@ end
 
 function MyPreviewer:parse_entry(entry_str)
   local line, text, file = entry_str:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
-  local cwd = require("lazyvim.util").root()
-  local path = cwd .. "/" .. file
+  local path = M.bookmarks_map[entry_str]
   return {
     path = path,
     line = tonumber(line) or 1,

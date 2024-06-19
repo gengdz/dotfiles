@@ -127,13 +127,15 @@ return {
 
           local lines = {}
           for _, bookmark in ipairs(bookmarks) do
+            local filename = vim.fn.fnamemodify(bookmark.filename, ":t") -- 得到文件名
             local line = string.format(
               "%s ┃ %s ┃ %s",
               G.pad_right_or_cut(string.format("%d", bookmark.lnum), 4),
               G.pad_right_or_cut(bookmark.text, 60),
-              bookmark.filename
+              filename
             )
             table.insert(lines, line)
+            G.bookmarks_map[line] = bookmark.filename
           end
 
           fzf_lua.fzf_exec(lines, {
@@ -149,7 +151,8 @@ return {
             actions = {
               ["default"] = function(selected, opts)
                 local line, text, file = selected[1]:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
-                fzf_lua.actions.file_edit({ string.format("%s:%s:%s", file, line, 1) }, opts)
+                local path = G.bookmarks_map[selected[1]]
+                fzf_lua.actions.file_edit({ string.format("%s:%s:%s", path, line, 1) }, opts)
               end,
             },
           })
