@@ -77,22 +77,21 @@ return {
           -- If no separator is detected will return the original query
           return (regex or query), flags
         end,
-      })
-      opts.files = {
-        fzf_opts = {
-          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
-        },
-      }
-      opts.grep = {
         fzf_opts = {
           ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
         },
-      }
+      })
+
+      opts.files = vim.tbl_deep_extend("force", opts.files, {
+        fzf_opts = {
+          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
+        },
+      })
+
       opts.keymap = {
         builtin = {
           ["<C-d>"] = "preview-page-down",
           ["<C-u>"] = "preview-page-up",
-          -- neovim `:tmap` mappings for the fzf win
           ["<F1>"] = "toggle-help",
         },
         fzf = {
