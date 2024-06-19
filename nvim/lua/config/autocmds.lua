@@ -44,3 +44,11 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave" }, {
   command = "silent! wall",
   nested = true,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("FzfCtrlH", { clear = true }),
+  pattern = "fzf",
+  callback = function(e)
+    vim.keymap.set("t", "<C-h>", "<C-h>", { buffer = e.buf, silent = true })
+  end,
+})
