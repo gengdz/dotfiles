@@ -2,6 +2,11 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+local function setTerminalKeymaps(bufnr)
+  vim.keymap.set("t", "<C-h>", "<C-h>", { buffer = bufnr, silent = true })
+  vim.keymap.set("t", "<C-l>", "<C-l>", { buffer = bufnr, silent = true })
+end
+
 -- 不需要拼写检查
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "markdown" },
@@ -14,9 +19,9 @@ vim.api.nvim_create_autocmd("FileType", {
 -- 设置终端的 TERM
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = { "*" },
-  callback = function()
+  callback = function(e)
     local buf_name = vim.api.nvim_buf_get_name(0)
-
+    setTerminalKeymaps(e.buf)
     if buf_name:match("/bin/zsh$") then
       -- 发送设置环境变量的命令
       vim.fn.chansend(vim.b.terminal_job_id, "export TERM=xterm-256color; clear\n")
@@ -46,9 +51,9 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("FzfCtrlH", { clear = true }),
+  group = vim.api.nvim_create_augroup("FzfCtrlHL", { clear = true }),
   pattern = "fzf",
   callback = function(e)
-    vim.keymap.set("t", "<C-h>", "<C-h>", { buffer = e.buf, silent = true })
+    setTerminalKeymaps(e.buf)
   end,
 })
