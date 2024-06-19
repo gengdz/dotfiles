@@ -135,7 +135,7 @@ return {
               filename
             )
             table.insert(lines, line)
-            G.bookmarks_map[line] = bookmark.filename
+            G.bookmarks_map[line] = bookmark
           end
 
           fzf_lua.fzf_exec(lines, {
@@ -151,8 +151,13 @@ return {
             actions = {
               ["default"] = function(selected, opts)
                 local line, text, file = selected[1]:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
-                local path = G.bookmarks_map[selected[1]]
+                local path = G.bookmarks_map[selected[1]].filename
                 fzf_lua.actions.file_edit({ string.format("%s:%s:%s", path, line, 1) }, opts)
+              end,
+              ["ctrl-x"] = function(selected, opts)
+                local entry = G.bookmarks_map[selected[1]]
+                G.delete_bookmark(entry)
+                vim.api.nvim_input("ma")
               end,
             },
           })

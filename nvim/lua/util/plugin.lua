@@ -16,6 +16,11 @@ function M.pad_right_or_cut(str, len)
   end
 end
 
+function M.delete_bookmark(entry)
+  vim.fn["bm_sign#del"](entry.filename, tonumber(entry.sign_idx))
+  vim.fn["bm#del_bookmark_at_line"](entry.filename, tonumber(entry.lnum))
+end
+
 function M.get_bookmarks(files, opts)
   opts = opts or {}
   local bookmarks = {}
@@ -34,7 +39,8 @@ function M.get_bookmarks(files, opts)
       if not (only_annotated and bookmark.annotation == "") then
         if string.find(file, opts.cwd, 1, true) then
           table.insert(bookmarks, {
-            filename = file:sub(#opts.cwd + 2),
+            -- filename = file:sub(#opts.cwd + 2),
+            filename = file,
             lnum = tonumber(line),
             col = 1,
             text = M.trim(text),
@@ -63,7 +69,7 @@ end
 
 function MyPreviewer:parse_entry(entry_str)
   local line, text, file = entry_str:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
-  local path = M.bookmarks_map[entry_str]
+  local path = M.bookmarks_map[entry_str].filename
   return {
     path = path,
     line = tonumber(line) or 1,
