@@ -71,6 +71,7 @@ return {
     event = "VeryLazy",
     opts = function(_, opts)
       opts.grep = vim.tbl_deep_extend("force", opts.grep, {
+        no_header = true,
         rg_glob = true,
         rg_glob_fn = function(query, _opts)
           local regex, flags = query:match("^(.-)%s%-%-(.*)$")
@@ -83,6 +84,7 @@ return {
       })
 
       opts.files = vim.tbl_deep_extend("force", opts.files, {
+        no_header = true,
         fzf_opts = {
           ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
         },
