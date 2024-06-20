@@ -70,6 +70,9 @@ return {
     "ibhagwan/fzf-lua",
     event = "VeryLazy",
     opts = function(_, opts)
+      local config = require("fzf-lua.config")
+      local actions = require("fzf-lua.actions")
+
       opts.grep = vim.tbl_deep_extend("force", opts.grep, {
         no_header = true,
         rg_glob = true,
@@ -90,21 +93,10 @@ return {
         },
       })
 
-      opts.keymap = {
-        builtin = {
-          ["<C-d>"] = "preview-page-down",
-          ["<C-u>"] = "preview-page-up",
-          ["<F1>"] = "toggle-help",
-        },
-        fzf = {
-          ["ctrl-j"] = "next-history",
-          ["ctrl-k"] = "prev-history",
-          ["ctrl-n"] = "down",
-          ["ctrl-p"] = "up",
-        },
-      }
-      local config = require("fzf-lua.config")
-      local actions = require("fzf-lua.actions")
+      config.defaults.keymap.fzf["ctrl-j"] = "next-history"
+      config.defaults.keymap.fzf["ctrl-k"] = "prev-history"
+      config.defaults.keymap.fzf["ctrl-n"] = "down"
+      config.defaults.keymap.fzf["ctrl-p"] = "up"
       config.defaults.actions.files["ctrl-t"] = actions.file_tabedit
     end,
   },
