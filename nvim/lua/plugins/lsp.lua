@@ -14,6 +14,9 @@ return {
       keys[#keys + 1] = { "<c-k>", false, mode = "i" }
       keys[#keys + 1] = { "gt", false }
     end,
+    opts = {
+      inlay_hints = { enabled = false },
+    },
   },
   {
     "AndrewRadev/inline_edit.vim",
