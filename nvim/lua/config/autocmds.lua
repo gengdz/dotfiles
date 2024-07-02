@@ -2,6 +2,11 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  command = "wincmd L",
+})
+
 local function setTerminalKeymaps(bufnr)
   vim.keymap.set("t", "<C-h>", "<C-h>", { buffer = bufnr, silent = true })
   vim.keymap.set("t", "<C-l>", "<C-l>", { buffer = bufnr, silent = true })
