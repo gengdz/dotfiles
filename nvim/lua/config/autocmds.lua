@@ -8,7 +8,7 @@ end
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("help"),
-  pattern = "help",
+  pattern = { "help", "man" },
   command = "wincmd L",
 })
 
