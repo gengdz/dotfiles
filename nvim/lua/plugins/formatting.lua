@@ -5,6 +5,7 @@ return {
     ft = { "markdown", "text" },
     lazy = true,
     event = "VeryLazy",
+    enabled = false,
   },
   -- {
   --   "stevearc/conform.nvim",
