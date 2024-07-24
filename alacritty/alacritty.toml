@@ -55,7 +55,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-args = ["--login", "-c", "tmux new -A -s we; zsh"]
+args = ["--login", "-c", "tmux new -A -s vn; zsh"]
 program = "/bin/zsh"
 
 [window]
