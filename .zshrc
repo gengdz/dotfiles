@@ -57,6 +57,7 @@ alias ga="git add ."
 alias go="git checkout"
 alias gpp="git push && we publish -d"
 alias vi="nvim"
+alias git='LANG=en_GB git'
 alias python="python3"
 
 # Set up fzf key bindings and fuzzy completion
