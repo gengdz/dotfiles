@@ -61,7 +61,10 @@ program = "/bin/zsh"
 [window]
 option_as_alt = "Both"
 # startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
-startup_mode = "SimpleFullscreen"
+startup_mode = "Maximized"
+
+# decorations = "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "None"
 
 [window.padding]
 x = 2
