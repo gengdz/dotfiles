@@ -203,21 +203,24 @@ alt-shift-l = ['join-with right', 'mode main']
 if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace T'
 
-
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace B'
 
 [[on-window-detected]]
-if.app-id = 'com.TickTick.task.mac'
-run = 'layout floating'
-
+if.app-id = 'com.netease.163music'
+run = 'move-node-to-workspace M'
 
 [[on-window-detected]]
 if.app-id = 'dd.work.exclusive4aliding'
-run = 'layout floating'
+run = [ 'layout floating', 'move-node-to-workspace C' ]
+
+[[on-window-detected]]
+if.app-id = 'com.TickTick.task.mac'
+run = [ 'layout floating', 'move-node-to-workspace N' ]
 
 [workspace-to-monitor-force-assignment]
-W = 'secondary'                  # Non-main monitor in case when there are only two monitors
-C = 'secondary'                   # Case insensitive regex substring
+W = 'secondary'
+C = 'secondary'
+N = 'secondary'
 
