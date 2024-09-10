@@ -1,0 +1,28 @@
+[core]
+  pager = delta
+	quotepath = false
+	excludesFile = ~/.gitignore
+	symlinks = false
+
+[interactive]
+  diffFilter = delta --color-only
+
+[user]
+	name = 星涯
+	email = gengdezhou.gdz@alibaba-inc.com
+
+[push]
+	autoSetupRemote = true
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
