@@ -49,6 +49,10 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 
+# alias
+alias top="btop"
+alias cat="bat"
+alias ls="eza -al --git"
 alias gs="git status"
 alias gc="git commit -m "
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad | %cr) %C(bold blue)<%an>%Creset' --abbrev-commit  --date=format:'%m-%d %H:%M' "
