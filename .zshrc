@@ -50,9 +50,11 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 
 # alias
-alias top="btop"
+alias cd="z"
+alias ps="procs --sortd cpu"
+alias top="btm"
 alias cat="bat"
-alias ls="eza -al --git"
+alias ls="eza -al --git --icons"
 alias gs="git status"
 alias gc="git commit -m "
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad | %cr) %C(bold blue)<%an>%Creset' --abbrev-commit  --date=format:'%m-%d %H:%M' "
@@ -83,3 +85,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 source ~/.config/completion-for-pnpm.zsh
+eval "$(zoxide init zsh)"
