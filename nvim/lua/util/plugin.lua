@@ -69,7 +69,11 @@ end
 
 function MyPreviewer:parse_entry(entry_str)
   local line, text, file = entry_str:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
-  local path = M.bookmarks_map[entry_str].filename
+  local bookmark = M.bookmarks_map[entry_str]
+  if not bookmark then
+    return {} -- 或者返回一个有意义的默认值
+  end
+  local path = bookmark.filename
   return {
     path = path,
     line = tonumber(line) or 1,
