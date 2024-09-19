@@ -46,6 +46,7 @@ export YSU_MESSAGE_POSITION="after"
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
+export MANPAGER='nvim +Man!'
 
 # alias
 alias cd="z"
