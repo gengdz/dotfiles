@@ -4,13 +4,6 @@
 local opts = { noremap = true, silent = true }
 
 local formatOnSave = function()
-  -- 获取当前缓冲区的文件类型
-  local file_type = vim.bo.filetype
-
-  if file_type == "markdown" or file_type == "md" or file_type == "text" then
-    -- 调用 pangu 进行文本调整
-    vim.api.nvim_input("<cmd>PanguAll<cr><esc>")
-  end
   require("lazyvim.util").format({ force = true })
   vim.api.nvim_input("<cmd>w<cr><esc>")
 end
