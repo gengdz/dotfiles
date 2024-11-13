@@ -129,7 +129,7 @@ return {
         function()
           local fzf_lua = require("fzf-lua")
           local cwd = require("lazyvim.util").root()
-          local G = require("util/plugin")
+          local G = require("util.bookmark")
           local bookmarks = G.get_bookmarks(vim.fn["bm#all_files"](), { cwd = cwd })
 
           local lines = {}
