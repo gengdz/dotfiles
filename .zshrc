@@ -49,6 +49,7 @@ export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
 
 # alias
+alias tree="ls -T -L2"
 alias cd="z"
 alias ps="procs --sortd cpu"
 alias top="btm"
