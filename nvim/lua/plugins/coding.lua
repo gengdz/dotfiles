@@ -1,5 +1,13 @@
 return {
   {
+    "saghen/blink.cmp",
+    opts = function(_, opts)
+      opts.keymap = vim.tbl_deep_extend("force", opts.keymap, {
+        ["<C-e>"] = { "fallback" },
+      })
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       local cmp = require("cmp")
