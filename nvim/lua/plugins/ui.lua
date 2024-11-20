@@ -8,9 +8,10 @@ return {
     },
   },
   {
-    "nvimdev/dashboard-nvim",
-    opts = function(_, dashboard)
-      local buttons = {
+    "folke/snacks.nvim",
+    opts = function(_, snacks)
+      local dashboard = snacks.dashboard
+      dashboard.preset.keys = vim.tbl_deep_extend("force", dashboard.preset.keys, {
         {
           action = ":Neotree<CR>",
           desc = " Explorer NeoTree",
@@ -18,10 +19,11 @@ return {
           key = "e",
           key_format = "  %s",
         },
+      })
+      dashboard.sections = {
+        { section = "keys", gap = 1, padding = 1 },
+        { section = "startup" },
       }
-      dashboard.config.header = vim.split(string.rep("\n", 8) .. [[]] .. "\n\n", "\n")
-      dashboard.config.center[1].icon = " "
-      dashboard.config.center[8] = buttons[1]
     end,
   },
   {
