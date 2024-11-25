@@ -24,9 +24,9 @@ return {
   },
   {
     "keaising/im-select.nvim",
-    config = function()
-      require("im_select").setup({})
-    end,
+    opts = {
+      set_default_events = { "TermLeave", "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
+    },
   },
   {
     "echasnovski/mini.surround",
