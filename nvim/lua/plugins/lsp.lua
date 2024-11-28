@@ -15,9 +15,10 @@ return {
       keys[#keys + 1] = { "<c-k>", false, mode = "i" }
       keys[#keys + 1] = { "gt", false }
 
+      local vtsls = opts.servers.vtsls
+      vtsls.settings.vtsls.experimental.maxInlayHintLength = 30
       -- disable vtsls key
-      local vtslsKeys = opts.servers.vtsls.keys
-      vtslsKeys[#vtslsKeys + 1] = { "<leader>co", false }
+      vtsls.keys[#vtsls.keys + 1] = { "<leader>co", false }
     end,
   },
   {
