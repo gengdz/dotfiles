@@ -8,15 +8,17 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    init = function()
+    opts = function(_, opts)
+      -- opts.inlay_hints = { enabled = false }
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- disable a keymap
       keys[#keys + 1] = { "<c-k>", false, mode = "i" }
       keys[#keys + 1] = { "gt", false }
+
+      -- disable vtsls key
+      local vtslsKeys = opts.servers.vtsls.keys
+      vtslsKeys[#vtslsKeys + 1] = { "<leader>co", false }
     end,
-    opts = {
-      inlay_hints = { enabled = false },
-    },
   },
   {
     "AndrewRadev/inline_edit.vim",

@@ -17,6 +17,7 @@ vim.g.autoformat = false
 -- 可以自动重新读取当前正在缓冲区但其内容变化了的文件
 vim.o.autoread = true
 
+vim.g.ai_cmp = false
 -- opt.nofoldenable = true
 -- opt.foldmethod = "manual"
 
