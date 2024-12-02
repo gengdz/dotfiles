@@ -16,7 +16,7 @@ return {
       keys[#keys + 1] = { "gt", false }
 
       local vtsls = opts.servers.vtsls
-      vtsls.settings.vtsls.experimental.maxInlayHintLength = 30
+      -- vtsls.settings.vtsls.experimental.maxInlayHintLength = 30
       -- disable vtsls key
       vtsls.keys[#vtsls.keys + 1] = { "<leader>co", false }
     end,
