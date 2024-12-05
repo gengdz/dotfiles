@@ -1,10 +1,29 @@
 return {
   {
     "saghen/blink.cmp",
+    dependencies = {
+      { "saghen/blink.compat", lazy = true },
+      { "hrsh7th/cmp-emoji", lazy = true },
+    },
     opts = function(_, opts)
       opts.keymap = vim.tbl_deep_extend("force", opts.keymap, {
         ["<C-e>"] = { "fallback" },
       })
+
+      opts.sources.compat = { "emoji" }
+      opts.sources.providers.emoji = {
+        name = "emoji",
+        module = "blink.compat.source",
+        score_offset = -4,
+        transform_items = function(ctx, items)
+          -- TODO: check https://github.com/Saghen/blink.cmp/pull/253#issuecomment-2454984622
+          local kind = require("blink.cmp.types").CompletionItemKind.Text
+          for i = 1, #items do
+            items[i].kind = kind
+          end
+          return items
+        end,
+      }
     end,
   },
   {
