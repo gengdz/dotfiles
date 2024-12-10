@@ -1,10 +1,12 @@
 return {
   {
     "saghen/blink.cmp",
+    optional = true,
     dependencies = {
       { "saghen/blink.compat", lazy = true },
       { "hrsh7th/cmp-emoji", lazy = true },
     },
+
     opts = function(_, opts)
       opts.keymap = vim.tbl_deep_extend("force", opts.keymap, {
         ["<C-e>"] = { "fallback" },

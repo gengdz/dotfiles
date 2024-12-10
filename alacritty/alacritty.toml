@@ -14,6 +14,7 @@ size = 14.0
 
 [font.normal]
 family = "MesloLGM Nerd Font" # Hack Nerd Font
+# family = "Hack Nerd Font" # Hack Nerd Font
 style = "Regular"
 
 [font.bold]
