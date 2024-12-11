@@ -5,6 +5,7 @@ return {
     dependencies = {
       { "saghen/blink.compat", lazy = true },
       { "hrsh7th/cmp-emoji", lazy = true },
+      { "codeium.nvim", optional = true },
     },
 
     opts = function(_, opts)
