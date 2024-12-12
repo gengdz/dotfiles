@@ -1,5 +1,20 @@
 return {
   -- {
+  --   "tiagovla/scope.nvim",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  --   config = function()
+  --     vim.opt.sessionoptions = { -- required
+  --       "buffers",
+  --       "tabpages",
+  --       "globals",
+  --     }
+  --     -- init.lua
+  --     require("scope").setup({})
+  --   end,
+  -- },
+
+  -- {
   --   "echasnovski/mini.surround",
   --   opts = function(_, opts)
   --     opts.mappings = vim.tbl_deep_extend("force", opts.mappings, {

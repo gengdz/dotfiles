@@ -1,4 +1,5 @@
 return {
+  { "indent-blankline.nvim", enabled = false },
   {
     "folke/snacks.nvim",
     opts = {
@@ -10,6 +11,16 @@ return {
           position = "float",
         },
       },
+      input = {},
+      indent = {
+        scope = {
+          treesitter = {
+            -- blocks = true,
+            enabled = true,
+          },
+        },
+      },
+      scroll = {},
     },
   },
 }

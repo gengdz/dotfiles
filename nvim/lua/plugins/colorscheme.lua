@@ -31,6 +31,10 @@ return {
       end,
     },
   },
+  {
+    "catppuccin/nvim",
+    enabled = false,
+  },
   -- {
   --   "LazyVim/LazyVim",
   --   opts = {

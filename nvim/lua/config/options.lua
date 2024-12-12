@@ -18,6 +18,8 @@ vim.g.autoformat = false
 vim.o.autoread = true
 
 vim.g.ai_cmp = false
+
+vim.opt.mousescroll = "ver:1,hor:6"
 -- opt.nofoldenable = true
 -- opt.foldmethod = "manual"
 

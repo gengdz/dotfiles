@@ -1,13 +1,5 @@
 return {
   {
-    "folke/noice.nvim",
-    -- 这里注意一定是小写字母
-    keys = {
-      { "<c-f>", false, mode = { "i", "n", "s" } },
-      { "<c-b>", false, mode = { "i", "n", "s" } },
-    },
-  },
-  {
     "folke/snacks.nvim",
     opts = function(_, snacks)
       local dashboard = snacks.dashboard
@@ -25,6 +17,14 @@ return {
         { section = "startup" },
       }
     end,
+  },
+  {
+    "folke/noice.nvim",
+    -- 这里注意一定是小写字母
+    keys = {
+      { "<c-f>", false, mode = { "i", "n", "s" } },
+      { "<c-b>", false, mode = { "i", "n", "s" } },
+    },
   },
   {
     "akinsho/bufferline.nvim",

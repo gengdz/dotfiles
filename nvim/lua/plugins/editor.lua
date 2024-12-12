@@ -27,20 +27,6 @@ return {
     },
   },
   {
-    "tiagovla/scope.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    config = function()
-      vim.opt.sessionoptions = { -- required
-        "buffers",
-        "tabpages",
-        "globals",
-      }
-      -- init.lua
-      require("scope").setup({})
-    end,
-  },
-  {
     "lewis6991/gitsigns.nvim",
     opts = {
       signcolumn = true, -- Toggle with `:Gitsigns toggle_signs` 显示变更的符号如 + -
