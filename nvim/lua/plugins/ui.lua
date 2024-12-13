@@ -1,22 +1,33 @@
 return {
+  { "indent-blankline.nvim", enabled = false },
   {
     "folke/snacks.nvim",
-    opts = function(_, snacks)
-      local dashboard = snacks.dashboard
-      dashboard.preset.keys = vim.tbl_deep_extend("force", dashboard.preset.keys, {
-        {
-          action = ":Neotree<CR>",
-          desc = " Explorer NeoTree",
-          icon = " ",
-          key = "e",
-          key_format = "  %s",
+    opts = {
+      dashboard = {
+        sections = {
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "startup" },
         },
-      })
-      dashboard.sections = {
-        { section = "keys", gap = 1, padding = 1 },
-        { section = "startup" },
-      }
-    end,
+      },
+      bigfile = {
+        size = 100 * 1024,
+      },
+      terminal = {
+        win = {
+          position = "float",
+        },
+      },
+      input = {},
+      indent = {
+        scope = {
+          treesitter = {
+            -- blocks = true,
+            enabled = true,
+          },
+        },
+      },
+      scroll = {},
+    },
   },
   {
     "folke/noice.nvim",

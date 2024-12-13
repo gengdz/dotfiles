@@ -1,4 +1,24 @@
 return {
+    -- {
+  --   "folke/snacks.nvim",
+  --   opts = function(_, snacks)
+  --     local dashboard = snacks.dashboard
+  --     dashboard.preset.keys = vim.tbl_deep_extend("force", dashboard.preset.keys, {
+  --       {
+  --         action = ":Neotree<CR>",
+  --         desc = " Explorer NeoTree",
+  --         icon = " ",
+  --         key = "e",
+  --         key_format = "  %s",
+  --       },
+  --     })
+  --     dashboard.sections = {
+  --       { section = "keys", gap = 1, padding = 1 },
+  --       { section = "startup" },
+  --     }
+  --   end,
+  -- },
+
   -- {
   --   "tiagovla/scope.nvim",
   --   lazy = true,
