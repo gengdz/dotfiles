@@ -16,16 +16,7 @@ return {
           position = "float",
         },
       },
-      -- input = {},
-      -- indent = {
-      --   scope = {
-      --     treesitter = {
-      --       -- blocks = true,
-      --       enabled = true,
-      --     },
-      --   },
-      -- },
-      scroll = {},
+      statuscolumn = { enabled = true },
     },
   },
   {
