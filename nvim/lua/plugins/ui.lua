@@ -16,7 +16,9 @@ return {
           position = "float",
         },
       },
-      statuscolumn = { enabled = true },
+      indent = {
+        chunk = { enabled = true },
+      },
     },
   },
   {
