@@ -16,9 +16,6 @@ return {
           position = "float",
         },
       },
-      indent = {
-        chunk = { enabled = true },
-      },
     },
   },
   {
