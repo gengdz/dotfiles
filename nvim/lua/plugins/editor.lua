@@ -1,6 +1,21 @@
 return {
   { "folke/todo-comments.nvim", enabled = false },
   {
+    "tiagovla/scope.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    config = true,
+    -- config = function()
+    --   vim.opt.sessionoptions = { -- required
+    --     "buffers",
+    --     "tabpages",
+    --     "globals",
+    --   }
+    --   -- init.lua
+    --   require("scope").setup({})
+    -- end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       filesystem = {
