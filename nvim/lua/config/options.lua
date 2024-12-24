@@ -6,7 +6,7 @@
 vim.opt.list = false -- 不显示制表符
 vim.opt.spell = false
 -- vim.opt.wrap = true -- 自动换行
-vim.opt.mousescroll = "ver:1,hor:4"
+-- vim.opt.mousescroll = "ver:1,hor:4" -- 控制鼠标滚动行为
 
 -- 可以自动重新读取当前正在缓冲区但其内容变化了的文件
 vim.o.autoread = true
