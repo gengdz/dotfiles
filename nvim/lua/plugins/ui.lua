@@ -16,6 +16,7 @@ return {
           position = "float",
         },
       },
+      scroll = { enabled = false },
     },
   },
   {
