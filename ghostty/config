@@ -1,10 +1,15 @@
 # Fonts
-font-family = "MesloLGM Nerd Font Mono Regular" 
-font-family-bold = "MesloLGM Nerd Font Mono Bold"
-font-family-italic = "MesloLGM Nerd Font Mono Italic"
-font-family-bold-italic = "MesloLGM Nerd Font Mono Bold Italic"
+font-family = "Fira Code"
+font-family-bold = "Fira Code"
+# font-family-bold = "MesloLGM Nerd Font Mono Bold"
+# font-family-italic = "MesloLGM Nerd Font Mono Italic"
+# font-family-bold-italic = "MesloLGM Nerd Font Mono Bold Italic"
 font-size = 14
+font-thicken = true
 adjust-underline-position = 4
+
+# colors
+bold-is-bright = true
 
 # Mouse
 mouse-hide-while-typing = true
@@ -15,6 +20,26 @@ theme = /Users/xingya/.config/ghostty/theme/tokyonight_moon.toml
 cursor-invert-fg-bg = true
 # background-opacity = 0.9
 window-theme = ghostty
+
+
+# Window
+gtk-titlebar = false
+gtk-single-instance = true
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
+window-padding-y = 0,0
+window-padding-balance = true
+window-decoration = false
+# macos-titlebar-style = hidden # 保留圆角和边框
+
+# Other
+copy-on-select = clipboard
+shell-integration-features = cursor,sudo,no-title
+
+
+shell-integration = zsh
+initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
+
 
 # keybindings
 # keybind = clear
@@ -35,20 +60,3 @@ window-theme = ghostty
 keybind = super+shift+r=reload_config
 # keybind = super+shift+s=write_screen_file:open
 # keybind = super+shift+w=close_surface
-
-# Window
-# gtk-titlebar = false
-gtk-single-instance = true
-gtk-tabs-location = bottom
-gtk-wide-tabs = false
-window-padding-y = 0,0
-window-padding-balance = true
-window-decoration = false
-
-# Other
-copy-on-select = clipboard
-shell-integration-features = cursor,sudo,no-title
-
-
-shell-integration = zsh
-initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
