@@ -1,10 +1,10 @@
 # Fonts
-font-family = "Fira Code"
-font-family-bold = "Fira Code"
+font-family = "FiraCode Nerd Font"
+font-family-bold = "FiraCode Nerd Font"
 # font-family-bold = "MesloLGM Nerd Font Mono Bold"
 # font-family-italic = "MesloLGM Nerd Font Mono Italic"
 # font-family-bold-italic = "MesloLGM Nerd Font Mono Bold Italic"
-font-size = 14
+font-size = 13.5
 font-thicken = true
 adjust-underline-position = 4
 
@@ -38,7 +38,7 @@ shell-integration-features = cursor,sudo,no-title
 
 
 shell-integration = zsh
-initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
+# initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
 
 
 # keybindings
