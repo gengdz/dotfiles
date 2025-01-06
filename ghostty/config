@@ -35,10 +35,11 @@ window-decoration = false
 # Other
 copy-on-select = clipboard
 shell-integration-features = cursor,sudo,no-title
+macos-option-as-alt = true
 
 
 shell-integration = zsh
-# initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
+initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
 
 
 # keybindings
