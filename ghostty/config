@@ -36,7 +36,8 @@ window-decoration = false
 copy-on-select = clipboard
 shell-integration-features = cursor,sudo,no-title
 macos-option-as-alt = true
-
+adjust-cursor-thickness = 2
+confirm-close-surface = false
 
 shell-integration = zsh
 initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
