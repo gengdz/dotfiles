@@ -85,12 +85,14 @@ return {
     "ibhagwan/fzf-lua",
     event = "VeryLazy",
     opts = function(_, opts)
-      local config = require("fzf-lua.config")
-      local actions = require("fzf-lua.actions")
+      local fzf = require("fzf-lua")
+      local config = fzf.config
+      local actions = fzf.actions
 
       opts.grep = vim.tbl_deep_extend("force", opts.grep, {
         no_header = true,
         rg_glob = true,
+        rg_opts = "--column --hidden --line-number --no-heading --color=always --smart-case --max-columns=4096 --follow -g '!.git'",
         rg_glob_fn = function(query, _opts)
           local regex, flags = query:match("^(.-)%s%-%-(.*)$")
           -- If no separator is detected will return the original query
