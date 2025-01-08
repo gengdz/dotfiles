@@ -92,7 +92,7 @@ return {
       opts.grep = vim.tbl_deep_extend("force", opts.grep, {
         no_header = true,
         rg_glob = true,
-        rg_opts = "--column --hidden --line-number --no-heading --color=always --smart-case --max-columns=4096 --follow -g '!.git'",
+        rg_opts = "--column --line-number --hidden --no-heading --color=always --smart-case --max-columns=4096 --follow -g '!.git' -g !{*-lock.*}",
         rg_glob_fn = function(query, _opts)
           local regex, flags = query:match("^(.-)%s%-%-(.*)$")
           -- If no separator is detected will return the original query
