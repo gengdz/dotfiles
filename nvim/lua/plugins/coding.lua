@@ -1,5 +1,12 @@
 return {
   {
+    "zbirenbaum/copilot.lua",
+    optional = true,
+    opts = {
+      filetypes = { ["*"] = true },
+    },
+  },
+  {
     "saghen/blink.cmp",
     optional = true,
     dependencies = {
