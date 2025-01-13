@@ -1,16 +1,16 @@
 gui:
-  windowSize: "normal" # one of 'normal' | 'half' | 'full' default is 'normal'
-  language: "en"
-  nerdFontsVersion: "3"
-  commitAuthorShortLength: 6
+    screenMode: "normal" # one of 'normal' | 'half' | 'full' default is 'normal'
+    language: "en"
+    nerdFontsVersion: "3"
+    commitAuthorShortLength: 6
 os:
-  editPreset: "nvim"
+    editPreset: "nvim"
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-  log:
-    showGraph: "always"
+    paging:
+        colorArg: always
+        pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    log:
+        showGraph: "always"
 # promptToReturnFromSubprocess: false
 # customCommands:
 #   - key: ":"
