@@ -1,5 +1,11 @@
 return {
   {
+    "nvzone/typr",
+    cmd = "TyprStats",
+    dependencies = "nvzone/volt",
+    opts = {},
+  },
+  {
     "echasnovski/mini.hipatterns",
     opts = {
       highlighters = {
