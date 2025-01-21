@@ -6,19 +6,22 @@ function M.trim(str)
   return str
 end
 
-function M.pad_right_or_cut(str, len)
-  if #str > len then
-    return string.sub(str, 1, len) -- 截取 str 到 len 个字符的内容
-  elseif #str < len then
-    return str .. string.rep(" ", len - #str) -- 如果 str 长度小于 len，补全到 len
+function M.pad_right_or_cut(str, longest_width)
+  -- 使用 Neovim 的 strwidth 函数获取实际显示宽度
+  local width = vim.fn.strwidth(str)
+
+  -- 如果当前宽度小于最长宽度，则在右边添加空格
+  if width < longest_width then
+    local formatted_text = str .. string.rep(" ", longest_width - width)
+    return formatted_text
   else
-    return str -- 如果 str 长度等于 len，不做修改
+    return str -- 如果宽度已经达到或超过最长宽度，直接返回原始字符串
   end
 end
 
 function M.delete_bookmark(entry)
-  vim.fn["bm_sign#del"](entry.filename, tonumber(entry.sign_idx))
-  vim.fn["bm#del_bookmark_at_line"](entry.filename, tonumber(entry.lnum))
+  vim.fn["bm_sign#del"](entry.file, tonumber(entry.sign_idx))
+  vim.fn["bm#del_bookmark_at_line"](entry.file, tonumber(entry.lnum))
 end
 
 function M.get_bookmarks(files, opts)
@@ -39,8 +42,8 @@ function M.get_bookmarks(files, opts)
       if not (only_annotated and bookmark.annotation == "") then
         if string.find(file, opts.cwd, 1, true) then
           table.insert(bookmarks, {
-            -- filename = file:sub(#opts.cwd + 2),
-            filename = file,
+            file = file,
+            filename = vim.fn.fnamemodify(file, ":t"), -- 得到文件名
             lnum = tonumber(line),
             col = 1,
             text = M.trim(text),
@@ -55,32 +58,5 @@ function M.get_bookmarks(files, opts)
 end
 
 M.bookmarks_map = {}
-
-local builtin = require("fzf-lua.previewer.builtin")
-
--- Inherit from the "buffer_or_file" previewer
-local MyPreviewer = builtin.buffer_or_file:extend()
-
-function MyPreviewer:new(o, opts, fzf_win)
-  MyPreviewer.super.new(self, o, opts, fzf_win)
-  setmetatable(self, MyPreviewer)
-  return self
-end
-
-function MyPreviewer:parse_entry(entry_str)
-  local line, text, file = entry_str:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
-  local bookmark = M.bookmarks_map[entry_str]
-  if not bookmark then
-    return {} -- 或者返回一个有意义的默认值
-  end
-  local path = bookmark.filename
-  return {
-    path = path,
-    line = tonumber(line) or 1,
-    col = 1,
-  }
-end
-
-M.MyPreviewer = MyPreviewer
 
 return M

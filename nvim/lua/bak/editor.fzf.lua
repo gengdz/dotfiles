@@ -82,40 +82,40 @@ return {
     },
   },
   {
-    "folke/snacks.nvim",
-    opts = {
-      picker = {
-        win = {
-          input = {
-            keys = {
-              ["<c-j>"] = { "history_forward", mode = { "i", "n" } },
-              ["<c-k>"] = { "history_back", mode = { "i", "n" } },
-              ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
-            },
-          },
-          list = {
-            keys = {
-              ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
-            },
-          },
+    "ibhagwan/fzf-lua",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      local fzf = require("fzf-lua")
+      local config = fzf.config
+      local actions = fzf.actions
+
+      opts.grep = vim.tbl_deep_extend("force", opts.grep, {
+        no_header = true,
+        rg_glob = true,
+        rg_opts = "--column --line-number --hidden --no-heading --color=always --smart-case --max-columns=4096 --follow -g '!.git' -g !{*-lock.*}",
+        rg_glob_fn = function(query, _opts)
+          local regex, flags = query:match("^(.-)%s%-%-(.*)$")
+          -- If no separator is detected will return the original query
+          return (regex or query), flags
+        end,
+        fzf_opts = {
+          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
         },
-        sources = {
-          grep = {
-            hidden = true,
-            follow = true,
-          },
-          files = {
-            hidden = true,
-            follow = true,
-          },
+      })
+
+      opts.files = vim.tbl_deep_extend("force", opts.files, {
+        no_header = true,
+        fzf_opts = {
+          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
         },
-        formatters = {
-          file = {
-            filename_first = true, -- display filename before the file path
-          },
-        },
-      },
-    },
+      })
+
+      config.defaults.keymap.fzf["ctrl-j"] = "next-history"
+      config.defaults.keymap.fzf["ctrl-k"] = "prev-history"
+      config.defaults.keymap.fzf["ctrl-n"] = "down"
+      config.defaults.keymap.fzf["ctrl-p"] = "up"
+      config.defaults.actions.files["ctrl-t"] = actions.file_tabedit
+    end,
   },
   {
     "MattesGroeger/vim-bookmarks",
@@ -131,50 +131,45 @@ return {
       {
         "ma",
         function()
-          local G = require("util.bookmark")
+          local fzf_lua = require("fzf-lua")
           local cwd = require("lazyvim.util").root()
+          local G = require("util.bookmark")
           local bookmarks = G.get_bookmarks(vim.fn["bm#all_files"](), { cwd = cwd })
 
-          local itmes = {}
-          for i, bookmark in ipairs(bookmarks) do
-            local item = {
-              idx = i,
-              score = i,
-              text = bookmark.text,
-              file = bookmark.file,
-              lnum = bookmark.lnum,
-              filename = bookmark.filename,
-              pos = { [1] = bookmark.lnum, [2] = 1 },
-              map_key = string.format("%d:%s:%s", bookmark.lnum, bookmark.text, bookmark.file),
-            }
-            table.insert(itmes, item)
-            G.bookmarks_map[item.map_key] = bookmark
+          local lines = {}
+          for _, bookmark in ipairs(bookmarks) do
+            local filename = vim.fn.fnamemodify(bookmark.filename, ":t") -- 得到文件名
+            local line = string.format(
+              "%s ┃ %s ┃ %s",
+              G.pad_right_or_cut(string.format("%d", bookmark.lnum), 4),
+              G.pad_right_or_cut(bookmark.text, 60),
+              filename
+            )
+            table.insert(lines, line)
+            G.bookmarks_map[line] = bookmark
           end
-          return Snacks.picker.pick({
-            title = "Bookmarks",
-            items = itmes,
-            format = function(item)
-              local ret = {}
-              Snacks.picker.highlight.format(item, G.pad_right_or_cut(item.text, 50), ret)
-              ret[#ret + 1] = { " ┃ ", "SnacksPickerComment" }
-              ret[#ret + 1] = { item.filename, "Text" }
-              return ret
-            end,
-            confirm = { "jump", "close" },
+
+          fzf_lua.fzf_exec(lines, {
+            winopts = {
+              title = "Bookmarks",
+              title_pos = "center",
+              preview = {
+                horizontal = "right:40%",
+                layout = "horizontal",
+              },
+            },
+            previewer = G.MyPreviewer,
             actions = {
-              delete_bookmark = function(picker, item)
-                picker:close()
-                local entry = G.bookmarks_map[item.map_key]
+              ["default"] = function(selected, opts)
+                local line, text, file = selected[1]:match("(%d+)%s+┃%s+(.-)%s+┃%s+(.+)")
+                local path = G.bookmarks_map[selected[1]].filename
+                fzf_lua.actions.file_edit({ string.format("%s:%s:%s", path, line, 1) }, opts)
+              end,
+              ["ctrl-x"] = function(selected, opts)
+                local entry = G.bookmarks_map[selected[1]]
                 G.delete_bookmark(entry)
                 vim.api.nvim_input("ma")
               end,
-            },
-            win = {
-              input = {
-                keys = {
-                  ["<c-x>"] = { "delete_bookmark", desc = "delet bookmark", mode = { "i", "n" } },
-                },
-              },
             },
           })
         end,
