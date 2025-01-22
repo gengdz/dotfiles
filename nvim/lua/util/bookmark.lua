@@ -10,12 +10,19 @@ function M.pad_right_or_cut(str, longest_width)
   -- 使用 Neovim 的 strwidth 函数获取实际显示宽度
   local width = vim.fn.strwidth(str)
 
-  -- 如果当前宽度小于最长宽度，则在右边添加空格
   if width < longest_width then
+    -- 如果当前宽度小于最长宽度，则在右边添加空格
     local formatted_text = str .. string.rep(" ", longest_width - width)
     return formatted_text
   else
-    return str -- 如果宽度已经达到或超过最长宽度，直接返回原始字符串
+    -- 如果宽度超过最长宽度，进行截取操作
+    local truncated_text = str
+    -- 循环直到我们得到的字符串宽度符合 longest_width
+    while vim.fn.strwidth(truncated_text) > longest_width do
+      truncated_text = truncated_text:sub(1, #truncated_text - 1)
+    end
+
+    return truncated_text -- 返回截取后的字符串
   end
 end
 
