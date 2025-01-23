@@ -25,6 +25,15 @@ return {
           },
         },
       },
+      gitbrowse = {
+        url_patterns = {
+          ["gitlab%.alibaba%-inc%.com"] = {
+            branch = "/tree/{branch}",
+            file = "/blob/{branch}/{file}#L{line_start}",
+            commit = "/commit/{commit}",
+          },
+        },
+      },
     },
   },
   {
