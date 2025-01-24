@@ -111,9 +111,7 @@ return {
           },
         },
         formatters = {
-          file = {
-            filename_first = true, -- display filename before the file path
-          },
+          file = {},
         },
       },
     },
@@ -156,9 +154,14 @@ return {
             items = itmes,
             format = function(item)
               local ret = {}
-              Snacks.picker.highlight.format(item, G.pad_right_or_cut(item.text, 50), ret)
+              Snacks.picker.highlight.format(item, G.pad_right_or_cut(item.text, 45), ret)
               ret[#ret + 1] = { " ┃ ", "SnacksPickerComment" }
               ret[#ret + 1] = { item.filename, "Text" }
+              -- ret[#ret + 1] = {
+              --   Snacks.picker.util.truncpath(item.file, 30),
+              --   "Text",
+              -- }
+
               return ret
             end,
             confirm = { "jump", "close" },
