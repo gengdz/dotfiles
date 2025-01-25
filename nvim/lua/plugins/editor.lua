@@ -84,6 +84,10 @@ return {
   },
   {
     "folke/snacks.nvim",
+    keys = {
+      { "<leader>fr", LazyVim.pick("oldfiles", { filter = { cwd = true } }), desc = "Recent (cwd)" },
+      { "<leader>fR", LazyVim.pick("oldfiles"), desc = "Recent" },
+    },
     opts = {
       picker = {
         win = {
