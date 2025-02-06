@@ -17,6 +17,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    optional = true,
     opts = {
       filesystem = {
         find_args = { -- you can specify extra args to pass to the find command.
@@ -113,6 +114,11 @@ return {
             hidden = true,
             follow = true,
           },
+          explorer = {
+            hidden = true,
+            follow = true,
+            ignored = true,
+          },
         },
         formatters = {
           file = {},
@@ -154,6 +160,7 @@ return {
             G.bookmarks_map[item.map_key] = bookmark
           end
           return Snacks.picker.pick({
+            source = "Bookmarks",
             title = "Bookmarks",
             items = itmes,
             format = function(item)
@@ -174,7 +181,10 @@ return {
                 picker:close()
                 local entry = G.bookmarks_map[item.map_key]
                 G.delete_bookmark(entry)
-                vim.api.nvim_input("ma")
+                -- vim.api.nvim_input("ma") -- 如果不加延迟，会导致删除报错
+                vim.defer_fn(function()
+                  vim.api.nvim_input("ma")
+                end, 100)
               end,
             },
             win = {
