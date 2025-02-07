@@ -2,6 +2,8 @@ gui:
   language: "en"
   nerdFontsVersion: "3"
   commitAuthorShortLength: 6
+  # timeFormat: 2006-01-02 15:04:05
+  # shortTimeFormat: 15:04:05
 os:
   editPreset: "nvim"
 git:
@@ -10,3 +12,12 @@ git:
     pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   log:
     showGraph: "always"
+keybinding:
+  universal:
+    prevItem: <c-p>
+    nextItem: <c-n>
+    scrollUpMain-alt2: <c-b>
+    scrollDownMain-alt2: <c-f>
+  files:
+    findBaseCommitForFixup: <disabled>
+    openStatusFilter: <disabled> 
