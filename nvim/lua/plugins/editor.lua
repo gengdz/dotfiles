@@ -1,6 +1,12 @@
 return {
   { "folke/todo-comments.nvim", enabled = false },
   {
+    "monaqa/dial.nvim",
+    opts = function(_, opts)
+      table.remove(opts.groups.default, 2)
+    end,
+  },
+  {
     "tiagovla/scope.nvim",
     lazy = true,
     event = "VeryLazy",
@@ -116,8 +122,8 @@ return {
           },
           explorer = {
             hidden = true,
-            follow = true,
             ignored = true,
+            exclude = { "node_modules", ".git" },
           },
         },
         formatters = {
