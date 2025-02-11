@@ -124,6 +124,14 @@ return {
             hidden = true,
             ignored = true,
             exclude = { "node_modules", ".git" },
+            layout = { auto_hide = { "input" } },
+            win = {
+              list = {
+                keys = {
+                  ["<c-t>"] = "edit_tab",
+                },
+              },
+            },
           },
         },
         formatters = {
