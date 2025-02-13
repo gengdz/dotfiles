@@ -21,27 +21,27 @@ return {
     --   require("scope").setup({})
     -- end,
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    optional = true,
-    opts = {
-      filesystem = {
-        find_args = { -- you can specify extra args to pass to the find command.
-          fd = {
-            "--ignore",
-            "--exclude",
-            ".git",
-          },
-        },
-        filtered_items = {
-          visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
-          never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-            ".DS_Store",
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   optional = true,
+  --   opts = {
+  --     filesystem = {
+  --       find_args = { -- you can specify extra args to pass to the find command.
+  --         fd = {
+  --           "--ignore",
+  --           "--exclude",
+  --           ".git",
+  --         },
+  --       },
+  --       filtered_items = {
+  --         visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
+  --         never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+  --           ".DS_Store",
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "echasnovski/mini.files",
     opts = {
@@ -123,7 +123,7 @@ return {
           explorer = {
             hidden = true,
             ignored = true,
-            exclude = { "node_modules", ".git" },
+            -- exclude = { "node_modules", ".git" },
             layout = { auto_hide = { "input" } },
             win = {
               list = {
