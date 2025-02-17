@@ -39,14 +39,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
--- vim.api.nvim_create_autocmd("TermLeave", {
---   pattern = { "*" },
---   callback = function()
---     if package.loaded["neo-tree.sources.git_status"] then
---       require("neo-tree.sources.git_status").refresh()
---     end
---   end,
--- })
+vim.api.nvim_create_autocmd("TermLeave", {
+  pattern = { "*" },
+  callback = function()
+    if package.loaded["neo-tree.sources.git_status"] then
+      require("neo-tree.sources.git_status").refresh()
+    end
+  end,
+})
 
 -- 取消换行注释
 -- 用o换行不要延续注释
