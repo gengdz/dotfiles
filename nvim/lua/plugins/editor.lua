@@ -124,9 +124,7 @@ return {
           explorer = {
             hidden = true,
             ignored = true,
-            -- exclude = { "node_modules", ".git" },
-            -- cmd="fd",
-            -- args = { "--hidden", "--ignore", "--exclude", ".git", "node_modules" },
+            exclude = { "node_modules/", ".git/" },
             layout = { auto_hide = { "input" } },
             win = {
               list = {
@@ -140,6 +138,7 @@ return {
         formatters = {
           file = {},
         },
+        -- exclude = { "node_modules/", ".git/" },
       },
     },
   },
