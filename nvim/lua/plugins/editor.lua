@@ -125,7 +125,10 @@ return {
             hidden = true,
             ignored = true,
             exclude = { "node_modules/", ".git/" },
-            layout = { auto_hide = { "input" } },
+            layout = {
+              auto_hide = { "input" },
+              preview = { main = true, enabled = false },
+            },
             win = {
               list = {
                 keys = {
