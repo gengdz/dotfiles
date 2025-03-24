@@ -31,7 +31,16 @@ return {
     "keaising/im-select.nvim",
     opts = {
       default_command = "im-select",
-      set_default_events = { "TermLeave", "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
+      set_default_events = {
+        "TermEnter",
+        "TermLeave",
+        "InsertLeave",
+        "InsertEnter",
+        "VimEnter",
+        "FocusGained",
+        "CmdlineEnter",
+        "CmdlineLeave",
+      },
     },
   },
 }
