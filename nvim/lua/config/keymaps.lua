@@ -24,10 +24,6 @@ vim.keymap.set("n", "-", "<cmd>split<cr>", opts)
 vim.keymap.set("n", "<leader>q", ":q<cr>", opts)
 vim.keymap.set("n", "<leader>wo", ":only<cr>", opts)
 
--- quickfix
--- 展示下一个文件中的第一个错误。]q 展示本文件的下一个错误。
-vim.keymap.set("n", "]Q", ":cnfile<cr>", opts)
-vim.keymap.set("n", "[Q", ":cpfile<cr>", opts)
 
 vim.keymap.set("i", "<C-e>", "<End>", opts)
 vim.keymap.set("i", "<C-b>", "<Left>", opts)
