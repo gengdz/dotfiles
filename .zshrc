@@ -36,6 +36,7 @@ plugins=(
     web-search
     colored-man-pages
     you-should-use
+    rust
 )
 
 # vi-mode 配置
@@ -86,3 +87,5 @@ esac
 # pnpm end
 source ~/.config/completion-for-pnpm.zsh
 eval "$(zoxide init zsh)"
+
+export PATH="$HOME/.cargo/bin:$PATH"

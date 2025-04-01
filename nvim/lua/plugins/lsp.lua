@@ -3,7 +3,12 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "css-lsp", "tailwindcss-language-server", "emmet-language-server" })
+      vim.list_extend(opts.ensure_installed, {
+        "css-lsp",
+        "tailwindcss-language-server",
+        "emmet-language-server",
+        "rust-analyzer",
+      })
     end,
   },
   {
@@ -12,8 +17,8 @@ return {
       -- opts.inlay_hints = { enabled = false }
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- disable a keymap
-      keys[#keys + 1] = { "<c-k>", false, mode = "i" }
-      keys[#keys + 1] = { "gt", false }
+      -- keys[#keys + 1] = { "<c-k>", false, mode = "i" }
+      -- keys[#keys + 1] = { "gt", false }
 
       local vtsls = opts.servers.vtsls
       -- vtsls.settings.vtsls.experimental.maxInlayHintLength = 30
