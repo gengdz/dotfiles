@@ -89,3 +89,7 @@ source ~/.config/completion-for-pnpm.zsh
 eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+eval $(thefuck --alias)
+
