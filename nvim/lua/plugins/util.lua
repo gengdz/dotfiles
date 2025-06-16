@@ -1,5 +1,11 @@
 return {
   {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {},
+  },
+  {
     "kawre/leetcode.nvim",
     -- build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
     dependencies = {
