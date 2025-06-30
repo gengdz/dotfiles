@@ -24,6 +24,6 @@ keybinding:
 customCommands:
   - key: <c-a>
     description: Pick AI commit
-    command: oco
+    command: oco -y
     context: files
-    output: terminal
+    # output: terminal
