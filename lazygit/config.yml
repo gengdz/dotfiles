@@ -26,4 +26,4 @@ customCommands:
     description: Pick AI commit
     command: oco -y
     context: files
-    # output: terminal
+    output: log
