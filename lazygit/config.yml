@@ -20,4 +20,10 @@ keybinding:
     scrollDownMain-alt2: <c-f>
   files:
     findBaseCommitForFixup: <disabled>
-    openStatusFilter: <disabled> 
+    openStatusFilter: <disabled>
+customCommands:
+  - key: <c-a>
+    description: Pick AI commit
+    command: oco
+    context: files
+    output: terminal
