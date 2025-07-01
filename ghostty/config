@@ -1,10 +1,10 @@
 # Fonts
 font-family = "FiraCode Nerd Font"
-font-family-bold = "FiraCode Nerd Font"
+# font-family-bold = "FiraCode Nerd Font"
 # font-family-bold = "MesloLGM Nerd Font Mono Bold"
 # font-family-italic = "MesloLGM Nerd Font Mono Italic"
 # font-family-bold-italic = "MesloLGM Nerd Font Mono Bold Italic"
-font-size = 13.5
+font-size = 13
 font-thicken = true
 adjust-underline-position = 4
 
