@@ -24,6 +24,36 @@ return {
       -- vtsls.settings.vtsls.experimental.maxInlayHintLength = 30
       -- disable vtsls key
       vtsls.keys[#vtsls.keys + 1] = { "<leader>co", false }
+
+      local eslint = opts.servers.eslint
+      eslint.on_init = function(client, _)
+        local new_root_dir = client.config.root_dir
+
+        local use_flat_config = false
+        if new_root_dir then
+          local flat_config_files = {
+            "eslint.config.js",
+            "eslint.config.mjs",
+            "eslint.config.cjs",
+            "eslint.config.ts",
+            "eslint.config.mts",
+            "eslint.config.cts",
+          }
+          for _, file in ipairs(flat_config_files) do
+            if vim.fn.filereadable(new_root_dir .. "/" .. file) == 1 then
+              use_flat_config = true
+              break
+            end
+          end
+        end
+
+        client.config.settings.experimental = {
+          useFlatConfig = use_flat_config,
+        }
+        -- client.config.settings.rules = {
+        --   -- ["@typescript-eslint/no-unused-vars"] = "off",
+        -- }
+      end
     end,
   },
   {
