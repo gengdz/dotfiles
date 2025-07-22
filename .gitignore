@@ -7,3 +7,4 @@ lazygit/state.yml
 nextjs-nodejs
 create-next-app-nodejs
 github-copilot
+nvim/lua/config/env.lua
