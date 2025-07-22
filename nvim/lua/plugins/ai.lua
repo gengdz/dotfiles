@@ -10,7 +10,7 @@ return {
     opts = {
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
       provider = "copilot", -- Default provider for Avante
-      -- auto_suggestions_provider = "gemini",
+      -- auto_suggestions_provider = "copilot",
       providers = {
         ---@type AvanteSupportedProvider
         gemini = {
