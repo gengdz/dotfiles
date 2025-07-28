@@ -93,3 +93,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 eval $(thefuck --alias)
 
+export $(<~/.config/.env)
+
