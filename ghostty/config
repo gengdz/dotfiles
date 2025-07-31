@@ -40,7 +40,7 @@ adjust-cursor-thickness = 2
 confirm-close-surface = false
 
 shell-integration = zsh
-initial-command = /bin/zsh -c "tmux new -A -s vn; zsh"
+initial-command = /bin/zsh -c "tmux new -A -s main; zsh"
 
 
 # keybindings
