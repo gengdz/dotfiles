@@ -92,12 +92,23 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
+style = "bg:#FCA17D fg:#000000"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
+style = "bg:#FCA17D fg:#000000"
 format = '[ $all_status$ahead_behind ]($style)'
+ahead = " ${count} "
+behind = " ${count} "
+diverged = " ${ahead_count}  ${behind_count} "
+modified = " ${count} "
+staged = " ${count} "
+stashed = " ${count} "
+deleted = "✘${count} "
+untracked = " ${count} "
+conflicted = "~ ${count} "
+typechanged = "= ${count} "
+
 
 [golang]
 symbol = " "
@@ -124,8 +135,8 @@ style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
-symbol = ""
-style = "bg:#86BBD8"
+symbol = "󰎙"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
