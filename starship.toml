@@ -86,7 +86,7 @@ staged = " ${count} "
 stashed = " ${count} "
 deleted = "✘${count} "
 untracked = " ${count} "
-conflicted = "~ ${count} "
+conflicted = "~${count} "
 
 [nodejs]
 symbol = "󰎙"
