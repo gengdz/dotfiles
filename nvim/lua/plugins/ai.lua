@@ -9,13 +9,20 @@ return {
     ---@type avante.Config
     opts = {
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-      provider = "copilot", -- Default provider for Avante
+      provider = "qianwen", -- Default provider for Avante
       -- auto_suggestions_provider = "copilot",
       providers = {
+        qianwen = {
+          __inherited_from = "openai",
+          api_key_name = "QWEN_API",
+          -- 这段代码的作用是：os.getenv 是
+          endpoint = os.getenv("QWEN_API_END_POINT"),
+          model = "Qwen3-Coder",
+        },
         ---@type AvanteSupportedProvider
         gemini = {
-          endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-          model = "gemini-2.0-flash",
+          -- endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+          model = "gemini-2.5-flash",
           timeout = 30000, -- Timeout in milliseconds
           context_window = 1048576,
           use_ReAct_prompt = true,
