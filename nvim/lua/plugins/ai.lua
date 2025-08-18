@@ -1,7 +1,107 @@
 return {
   {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    keys = {
+      {
+        "<leader>ai",
+        function()
+          vim.cmd("CodeCompanion")
+        end,
+        desc = "Code companion inline",
+      },
+      {
+        "<leader>aa",
+        "<cmd>CodeCompanionActions<cr>",
+        desc = "Trigger Code Companion actions",
+      },
+      {
+        "<leader>ac",
+        "<cmd>CodeCompanionChat<cr>",
+        desc = "Open Code Companion chat interface",
+      },
+      {
+        "<leader>am",
+        "<cmd>CodeCompanionCmd",
+        desc = "Execute a command in Code Companion",
+      },
+    },
+    cmd = {
+      "CodeCompanion",
+      "CodeCompanionActions",
+      "CodeCompanionChat",
+      "CodeCompanionCmd",
+    },
+    opts = {
+      adapters = {
+        qwen = function()
+          -- LazyVim.cmp.actions.ai_accept = function()
+          --   if require("codecompanion.providers.completion.blink").get_completions() then
+          --     LazyVim.create_undo()
+          --
+          --     vim.api.nvim_input(require("codecompanion.providers.completion.blink").get_trigger_characters())
+          --     return true
+          --   end
+          -- if require("codecompanion.utils.adapters").get_current_completion_item() then
+          --   LazyVim.create_undo()
+          --   vim.api.nvim_input(require("codecompanion.virtual_text").accept())
+          --   return true
+          -- end
+          -- end
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            name = "qwen",
+            opts = {
+              -- vision = true,
+              log_level = "DEBUG",
+              stream = true,
+              language = "Chinese",
+            },
+            env = {
+              url = os.getenv("QWEN_API_END_POINT_DOMAIN"),
+              chat_url = "/v1/chat/completions",
+              models_endpoint = "/v1/models",
+              api_key = os.getenv("QWEN_API"),
+            },
+            headers = {
+              ["Content-Type"] = "application/json",
+            },
+            schema = {
+              model = {
+                default = "Qwen3-Coder",
+              },
+              num_ctx = {
+                default = 8192,
+              },
+              num_preduct = {
+                default = -1,
+              },
+            },
+          })
+        end,
+      },
+      completion_provider = "blink", -- blink|cmp|coc|default
+      strategies = {
+        chat = { adapter = "qwen" },
+        inline = { adapter = "qwen" },
+        action = { adapter = "qwen" },
+      },
+      display = {
+        diff = {
+          enabled = true,
+          close_chat_at = 240,
+          layout = "vertical",
+          opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
+          provider = "mini_diff",
+        },
+      },
+    },
+  },
+  {
     "yetone/avante.nvim",
-    -- enabled = false,
+    enabled = false,
     build = "make",
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
