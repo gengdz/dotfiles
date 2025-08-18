@@ -38,19 +38,6 @@ return {
     opts = {
       adapters = {
         qwen = function()
-          -- LazyVim.cmp.actions.ai_accept = function()
-          --   if require("codecompanion.providers.completion.blink").get_completions() then
-          --     LazyVim.create_undo()
-          --
-          --     vim.api.nvim_input(require("codecompanion.providers.completion.blink").get_trigger_characters())
-          --     return true
-          --   end
-          -- if require("codecompanion.utils.adapters").get_current_completion_item() then
-          --   LazyVim.create_undo()
-          --   vim.api.nvim_input(require("codecompanion.virtual_text").accept())
-          --   return true
-          -- end
-          -- end
           return require("codecompanion.adapters").extend("openai_compatible", {
             name = "qwen",
             opts = {
