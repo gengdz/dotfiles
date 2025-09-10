@@ -52,7 +52,7 @@ truncation_symbol = "…/"
 
 [time]
 disabled = false
-time_format = "%Y-%m-%d %R"    # Year-Month-Day Hour:Minute Format
+time_format = "%m-%d %R"       # Year-Month-Day Hour:Minute Format   "%Y-%m-%d %R"
 style = "bg:#33658A"
 format = '[ ♥ $time ]($style)'
 
@@ -128,4 +128,3 @@ format = '[ $symbol ($version) ]($style)'
 symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
-
