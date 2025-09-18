@@ -33,7 +33,7 @@ return {
     opts = {},
   },
   {
-    "echasnovski/mini.hipatterns",
+    "nvim-mini/mini.hipatterns",
     opts = {
       highlighters = {
         -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'

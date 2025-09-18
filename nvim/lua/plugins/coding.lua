@@ -25,6 +25,16 @@ return {
         score_offset = -4,
         kind = require("blink.cmp.types").CompletionItemKind.Text,
       }
+
+      -- -- table.insert(opts.sources.default, "codecompanion")
+      -- table.insert(opts.sources.compat, "codecompanion")
+      -- opts.sources.providers.codecompanion = {
+      --   name = "CodeCompanion",
+      --   module = "codecompanion.providers.completion.blink",
+      --   kind = "CodeCompanion",
+      --   score_offset = 100,
+      --   async = true,
+      -- }
     end,
   },
   {
