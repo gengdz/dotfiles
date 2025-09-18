@@ -43,6 +43,15 @@ return {
       { "<c-f>", false, mode = { "i", "n", "s" } },
       { "<c-b>", false, mode = { "i", "n", "s" } },
     },
+    opts = {
+      lsp = {
+        hover = {
+          -- Set not show a message if hover is not available
+          -- ex: shift+k on Typescript code
+          silent = true,
+        },
+      },
+    },
   },
   {
     "akinsho/bufferline.nvim",
