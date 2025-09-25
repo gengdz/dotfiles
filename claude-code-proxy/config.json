@@ -1,0 +1,10 @@
+{
+  "baseURL": "https://apis.iflow.cn/v1/",
+  "apiKey": "sk-6bfa69ec3cadbffbc2d10873f1ec7f49",
+  "modelMapping": {
+    "small_model": "Qwen3-32B",
+    "model": "Qwen3-Coder",
+    "opus_model": "Qwen3-Coder"
+  },
+  "searchApiKey": "sk-6bfa69ec3cadbffbc2d10873f1ec7f49"
+}

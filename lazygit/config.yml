@@ -24,6 +24,6 @@ keybinding:
 customCommands:
   - key: <c-a>
     description: Pick AI commit
-    command: claude --dangerously-skip-permissions -p mcp:commit
+    command: claude --dangerously-skip-permissions -p mcp:commit &
     context: files
     output: log
