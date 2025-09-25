@@ -42,6 +42,15 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd("TermLeave", {
   pattern = { "*" },
   callback = function()
+    if package.loaded["snacks.explorer.git"] then
+      require("snacks.explorer.git").refresh(vim.uv.cwd())
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("TermLeave", {
+  pattern = { "*" },
+  callback = function()
     if package.loaded["neo-tree.sources.git_status"] then
       require("neo-tree.sources.git_status").refresh()
     end
