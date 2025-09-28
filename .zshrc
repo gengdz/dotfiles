@@ -37,6 +37,7 @@ plugins=(
     colored-man-pages
     you-should-use
     rust
+    brew
 )
 
 # vi-mode 配置
