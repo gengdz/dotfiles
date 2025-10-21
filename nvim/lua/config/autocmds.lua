@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   pattern = { "*" },
   callback = function(e)
     local buf_name = vim.api.nvim_buf_get_name(0)
-    setTerminalKeymaps(e.buf)
+    -- setTerminalKeymaps(e.buf)
     if buf_name:match("/bin/zsh$") then
       -- 发送设置环境变量的命令
       vim.fn.chansend(vim.b.terminal_job_id, "export TERM=xterm-256color; clear\n")
@@ -39,14 +39,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-vim.api.nvim_create_autocmd("TermLeave", {
-  pattern = { "*" },
-  callback = function()
-    if package.loaded["snacks.explorer.git"] then
-      require("snacks.explorer.git").refresh(vim.uv.cwd())
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("TermLeave", {
+--   pattern = { "*" },
+--   callback = function()
+--     if package.loaded["snacks.explorer.git"] then
+--       require("snacks.explorer.git").refresh(vim.uv.cwd())
+--     end
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("TermLeave", {
   pattern = { "*" },
