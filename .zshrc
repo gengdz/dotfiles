@@ -67,6 +67,8 @@ alias gpp="git push && we publish -d"
 alias vi="nvim"
 alias git='LANG=en_GB git'
 alias python="python3"
+alias gemini="gemini -y"
+alias claude="claude --dangerously-skip-permissions"
 
 # Set up fzf key bindings and fuzzy completion
 [ -n "$(command -v fzf)" ] && source <(fzf --zsh)
