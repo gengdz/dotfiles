@@ -1,6 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -88,21 +89,16 @@ return {
   },
   {
     "yetone/avante.nvim",
-    enabled = false,
-    build = "make",
-    event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
     ---@module 'avante'
     ---@type avante.Config
     opts = {
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
       provider = "qianwen", -- Default provider for Avante
-      -- auto_suggestions_provider = "copilot",
+      auto_suggestions_provider = "qianwen",
       providers = {
         qianwen = {
           __inherited_from = "openai",
           api_key_name = "QWEN_API",
-          -- 这段代码的作用是：os.getenv 是
           endpoint = os.getenv("QWEN_API_END_POINT"),
           model = "Qwen3-Coder",
         },
@@ -129,55 +125,11 @@ return {
           },
         },
       },
-      selector = {
-        provider = "snacks",
-        -- Options override for custom providers
-        -- provider_opts = {},
-      },
-      input = {
-        provider = "snacks",
-        provider_opts = {
-          -- Additional snacks.input options
-          title = "Avante Input",
-          icon = " ",
-          height = 10, -- 设置输入框的高度
-        },
-      },
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      -- "stevearc/dressing.nvim", -- for input provider dressing
-      -- "folke/snacks.nvim", -- for input provider snacks
-      -- "echasnovski/mini.icons",
-      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        -- Make sure to set this up properly if you have lazy=true
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
+      -- input = {
+      --   provider_opts = {
+      --     height = 10, -- 设置输入框的高度
+      --   },
+      -- },
     },
   },
 }
