@@ -1,12 +1,5 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    optional = true,
-    opts = {
-      filetypes = { ["*"] = true },
-    },
-  },
-  {
     "saghen/blink.cmp",
     dependencies = {
       "moyiz/blink-emoji.nvim",
