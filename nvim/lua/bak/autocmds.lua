@@ -12,6 +12,11 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "wincmd L",
 })
 
+local function setTerminalKeymaps(bufnr)
+  vim.keymap.set("t", "<C-h>", "<C-h>", { buffer = bufnr, silent = true })
+  vim.keymap.set("t", "<C-l>", "<C-l>", { buffer = bufnr, silent = true })
+end
+
 -- 不需要拼写检查
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "markdown" },
@@ -30,6 +35,24 @@ vim.api.nvim_create_autocmd("TermOpen", {
     if buf_name:match("/bin/zsh$") then
       -- 发送设置环境变量的命令
       vim.fn.chansend(vim.b.terminal_job_id, "export TERM=xterm-256color; clear\n")
+    end
+  end,
+})
+
+-- vim.api.nvim_create_autocmd("TermLeave", {
+--   pattern = { "*" },
+--   callback = function()
+--     if package.loaded["snacks.explorer.git"] then
+--       require("snacks.explorer.git").refresh(vim.uv.cwd())
+--     end
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd("TermLeave", {
+  pattern = { "*" },
+  callback = function()
+    if package.loaded["neo-tree.sources.git_status"] then
+      require("neo-tree.sources.git_status").refresh()
     end
   end,
 })
@@ -54,3 +77,11 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave" }, {
   command = "silent! wall",
   nested = true,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = augroup("fzf_ctrl_hl"),
+--   pattern = "fzf",
+--   callback = function(e)
+--     setTerminalKeymaps(e.buf)
+--   end,
+-- })
