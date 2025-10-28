@@ -143,6 +143,10 @@ return {
           file = {},
         },
         -- exclude = { "node_modules/", ".git/" },
+        previewers = {
+          diff = { builtin = false },
+          git = { builtin = false },
+        },
       },
     },
   },
