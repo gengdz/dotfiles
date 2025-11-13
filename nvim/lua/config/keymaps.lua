@@ -25,12 +25,13 @@ vim.keymap.set("n", "<leader>q", ":q<cr>", opts)
 vim.keymap.set("n", "<leader>wo", ":only<cr>", opts)
 
 
+vim.keymap.set("i", "<C-a>", "<Home>", opts)
 vim.keymap.set("i", "<C-e>", "<End>", opts)
 vim.keymap.set("i", "<C-b>", "<Left>", opts)
 vim.keymap.set("i", "<C-f>", "<Right>", opts)
-vim.keymap.set("i", "<C-a>", "<Home>", opts)
 vim.keymap.set("i", "<C-j>", "<Down>", opts)
-vim.keymap.set("i", "<C-k>", "<Up>", opts)
+-- vim.keymap.set("i", "<C-k>", "<C-o>D", opts) -- 删除光标到行尾的内容
+vim.keymap.set("i", "<C-d>", "<Del>", opts)
 
 -- tabs
 vim.keymap.set("n", "]t", "<cmd>tabnext<cr>", opts)
