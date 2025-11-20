@@ -30,7 +30,7 @@ vim.keymap.set("i", "<C-e>", "<End>", opts)
 vim.keymap.set("i", "<C-b>", "<Left>", opts)
 vim.keymap.set("i", "<C-f>", "<Right>", opts)
 vim.keymap.set("i", "<C-j>", "<Down>", opts)
--- vim.keymap.set("i", "<C-k>", "<C-o>D", opts) -- 删除光标到行尾的内容
+vim.keymap.set("i", "<C-k>", "<C-o>D", opts) -- 删除光标到行尾的内容
 vim.keymap.set("i", "<C-d>", "<Del>", opts)
 
 -- tabs

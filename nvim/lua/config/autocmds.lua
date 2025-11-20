@@ -54,3 +54,13 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave" }, {
   command = "silent! wall",
   nested = true,
 })
+
+-- vim.api.nvim_create_autocmd({ "BufEnter", "TermLeave" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     if package.loaded["snacks.explorer.git"] then
+--       -- require("snacks.explorer.git").refresh(vim.uv.cwd())
+--       require("snacks.explorer.actions").actions.explorer_update()
+--     end
+--   end,
+-- })
