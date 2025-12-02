@@ -1,6 +1,37 @@
 return {
-    {
+  {
+    "milanglacier/minuet-ai.nvim",
+    opts = {
+      virtualtext = {
+        auto_trigger_ft = { "*" },
+        keymap = {
+          accept = "<Tab>",
+          accept_line = "<A-a>",
+          accept_n_lines = "<A-z>",
+          prev = "<A-[>",
+          next = "<A-]>",
+          dismiss = "<A-e>",
+        },
+      },
+      provider = "openai_compatible",
+      provider_options = {
+        openai_compatible = {
+          model = "qwen3-coder-plus",
+          stream = true,
+          end_point = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions", -- Contains "chat" to avoid warning, fragment won't be sent to server
+          api_key = "QWEN_API_KEY",
+          name = "qwen",
+          optional = {
+            max_tokens = 256,
+            stop = { "\n\n" },
+          },
+        },
+      },
+    },
+  },
+  {
     "zbirenbaum/copilot.lua",
+    enabled = false,
     optional = true,
     opts = {
       filetypes = { ["*"] = true },
@@ -96,6 +127,7 @@ return {
   },
   {
     "yetone/avante.nvim",
+    enabled = false,
     ---@module 'avante'
     ---@type avante.Config
     opts = {
@@ -122,7 +154,7 @@ return {
             },
           },
         },
-        opeanai = {
+        openai = {
           endpoint = "https://api.chatanywhere.tech/v1",
           model = "gpt-4o-mini",
           timeout = 30000, -- Timeout in milliseconds
