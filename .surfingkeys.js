@@ -133,6 +133,10 @@ settings.theme = `
         ul li {
             margin-block: 0.5rem;
             padding-left: 0.4rem;
+& img[src*="github.com"] {
+filter: invert(1) brightness(1.2);
+}
+
         }
         ul li.focused {
             background: #181818;
@@ -144,17 +148,17 @@ settings.theme = `
     }
 
     & .separator {
-        color: rgba(38,39,57);
+        color: bisque;
     }
     & .prompt {
-        color: #aaa;
-        background-color: #181818;
-        border-radius: 10px;
-        padding-left: 22px;
-        padding-right: 21px;
-        /* padding: ; */
-        font-weight: bold;
-        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.8);
+        // color: #aaa;
+        // background-color: #181818;
+        // border-radius: 10px;
+        // padding-left: 22px;
+        // padding-right: 21px;
+        // /* padding: ; */
+        // font-weight: bold;
+        // box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.8);
     }
 }
 
@@ -242,6 +246,10 @@ padding: 10px;
         padding-left: 5px;
         color: #ebdbb2;
     }
+
+& .sk_tab_icon img[src*="github.com"] {
+filter: invert(1) brightness(1.2);
+}
 
     &.vertical {
         & div.sk_tab_hint {
