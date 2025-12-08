@@ -3,7 +3,7 @@ return {
     "milanglacier/minuet-ai.nvim",
     opts = {
       virtualtext = {
-        auto_trigger_ft = { "*" },
+        auto_trigger_ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "markdown", "lua" },
         keymap = {
           accept = "<Tab>",
           accept_line = "<A-a>",
