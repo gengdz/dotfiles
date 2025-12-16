@@ -1,6 +1,7 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.ai.copilot",
+    "lazyvim.plugins.extras.ai.codeium",
+    "lazyvim.plugins.extras.coding.mini-comment",
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.dial",
@@ -11,6 +12,7 @@
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.ember",
     "lazyvim.plugins.extras.lang.git",
+    "lazyvim.plugins.extras.lang.java",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.rust",
