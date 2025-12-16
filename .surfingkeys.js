@@ -273,7 +273,7 @@ filter: invert(1) brightness(1.2);
 
         & div.sk_tab_title {
             min-width: 100pt;
-            max-width: 20vw;
+            max-width: 18vw;
         }
     }
 }
