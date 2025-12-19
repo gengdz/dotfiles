@@ -2,7 +2,11 @@ return {
   {
     "milanglacier/minuet-ai.nvim",
     opts = {
+      debounce = 20,
+      throttle = 50,
+      n_completions = 3,
       virtualtext = {
+        show_on_completion_menu = true,
         auto_trigger_ft = { "typescript", "typescriptreact", "javascript", "javascriptreact", "markdown", "lua" },
         keymap = {
           accept = "<Tab>",
@@ -18,8 +22,8 @@ return {
         openai_compatible = {
           model = "qwen3-coder-plus",
           stream = true,
-          end_point = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions", -- Contains "chat" to avoid warning, fragment won't be sent to server
-          api_key = "QWEN_API_KEY",
+          end_point = "https://idealab.alibaba-inc.com/api/openai/v1/chat/completions", -- Contains "chat" to avoid warning, fragment won't be sent to server
+          api_key = "IDEALAB_API_KEY",
           name = "qwen",
           optional = {
             max_tokens = 256,
