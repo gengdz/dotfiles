@@ -206,18 +206,18 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
-run = 'move-node-to-workspace T'
+run = ['layout floating', 'move-node-to-workspace T']
 
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace T'
+run = ['layout floating', 'move-node-to-workspace T']
 
 
 [[on-window-detected]]
 # if.app-id = 'company.thebrowser.Browser'
 if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace B'
+run = ['move-node-to-workspace B']
 
 [[on-window-detected]]
 if.app-id = 'com.netease.163music'

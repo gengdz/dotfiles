@@ -59,15 +59,15 @@ program = "/bin/zsh"
 [window]
 option_as_alt = "Both"
 # startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
-startup_mode = "Maximized"
-# startup_mode = "SimpleFullscreen" # 问题在于如果使用了 aerospace 在切换到 该 workspace 的时候，窗口非聚焦为 alacritty 还在上个应用、需要点下鼠标才行
+# startup_mode = "Maximized"
+startup_mode = "SimpleFullscreen" # 问题在于如果使用了 aerospace 在切换到 该 workspace 的时候，窗口非聚焦为 alacritty 还在上个应用、需要点下鼠标才行
 
 # decorations = "Full" | "None" | "Transparent" | "Buttonless"
 decorations = "None"
 
 [window.padding]
 x = 2
-y = 7
+y = 5
 
 [general]
 live_config_reload = true
