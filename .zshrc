@@ -100,3 +100,6 @@ eval $(thefuck --alias)
 export $(<~/.config/.env)
 
 eval "$(starship init zsh)"
+
+# maiga CLI tool
+export PATH="/Users/xingya/.maiga/bin:$PATH"
