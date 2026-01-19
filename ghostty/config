@@ -29,7 +29,7 @@ gtk-tabs-location = bottom
 gtk-wide-tabs = false
 window-padding-y = 0,0
 window-padding-balance = true
-# window-decoration = false
+window-decoration = false
 
 fullscreen = true
 macos-non-native-fullscreen = true
