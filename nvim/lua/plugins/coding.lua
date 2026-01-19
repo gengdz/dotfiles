@@ -47,7 +47,7 @@ return {
   {
     "keaising/im-select.nvim",
     opts = {
-      default_command = "im-select",
+      -- default_command = "macism",
       set_default_events = {
         "TermEnter",
         "TermLeave",
