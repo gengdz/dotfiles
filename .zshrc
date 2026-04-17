@@ -53,7 +53,7 @@ export MANPAGER='nvim +Man!'
 # alias
 alias tree="ls -T -L2"
 alias cd="z"
-alias ps="procs --sortd cpu"
+# alias ps="procs --sortd cpu"
 alias top="btm"
 alias cat="bat"
 alias ls="eza -al --git --icons"
@@ -103,3 +103,9 @@ eval "$(starship init zsh)"
 
 # maiga CLI tool
 export PATH="/Users/xingya/.maiga/bin:$PATH"
+
+# Added by Qoder CLI installer
+export PATH="$PATH:/Users/xingya/.local/bin"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
