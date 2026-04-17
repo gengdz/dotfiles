@@ -1,6 +1,7 @@
 return {
   {
     "milanglacier/minuet-ai.nvim",
+    -- enabled = false,
     opts = {
       debounce = 20,
       throttle = 50,
@@ -26,8 +27,8 @@ return {
           api_key = "IDEALAB_API_KEY",
           name = "qwen",
           optional = {
-            max_tokens = 256,
-            stop = { "\n\n" },
+            stop = nil,
+            max_tokens = nil,
           },
         },
       },

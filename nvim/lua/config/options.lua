@@ -14,6 +14,7 @@ vim.o.autoread = true
 -- vim.g.deprecation_warnings = true
 vim.g.autoformat = false
 vim.g.ai_cmp = false
+-- vim.g.lazyvim_ts_lsp = "tsgo"
 -- vim.g.snacks_animate = false
 -- vim.g.lazyvim_blink_main = true
 
